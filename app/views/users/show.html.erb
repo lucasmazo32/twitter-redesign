@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <h4><%= @user.name %></h4>
+      <p><%= link_to  "Edit", edit_user_path(@user), class:'btn btn-primary' %></p>
+      <span><%= delete_user?(@user) %></span>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, except: %i[show]
+  scope 'me', as: 'me' do
+    get '/:id', to: 'users#show'
+    delete '/:id', to: 'users#destroy'
+  end
 end

@@ -1,9 +1,12 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :username, use: :slugged
+
   validate :good_username
 
-  has_many :opinions, foreign_key: 'author', class_name: 'Opinion'
-  has_many :follows, foreign_key: 'follower', class_name: 'Following'
-  has_many :followds, foreign_key: 'followed', class_name: 'Following'
+  has_many :opinions, foreign_key: 'author', class_name: 'Opinion', dependent: :destroy
+  has_many :follows, foreign_key: 'follower', class_name: 'Following', dependent: :destroy
+  has_many :followds, foreign_key: 'followed', class_name: 'Following', dependent: :destroy
 
   validates :username, presence: true, allow_blank: false,
                        uniqueness: { case_sensitive: false },
