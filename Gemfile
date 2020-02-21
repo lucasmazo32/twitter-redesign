@@ -41,6 +41,8 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'will_paginate'
 # Bootstrap for paginate
 gem 'bootstrap-will_paginate', '1.0.0'
+# language filter
+gem 'language_filter'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
