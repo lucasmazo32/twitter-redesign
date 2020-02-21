@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <% @opinions.each do |opinion| %>
+        <h6><%= link_to  opinion.author.name, jlt_path(opinion) %></h6>
+        <p><%= opinion.text %></p>
+      <% end %>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
