@@ -6,4 +6,8 @@ class JltController < ApplicationController
   def show
     @opinion = Opinion.includes(:author).find(params[:id])
   end
+
+  def create
+  
+  end
 end
