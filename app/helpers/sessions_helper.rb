@@ -13,8 +13,12 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def not_logged
+    redirect_to login_path unless logged?
+  end
+
   def correct_user
-    current_user == User.find(params[:id])
+    current_user == User.friendly.find(params[:id])
   end
 
   def log_out

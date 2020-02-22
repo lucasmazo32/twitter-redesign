@@ -14,6 +14,10 @@ class User < ApplicationRecord
                        format: { without: /\s/, message: 'no spaces allowed' }
   validates :name, presence: true, allow_blank: nil, length: { in: 3..25 }
 
+  def follows?(user)
+    self.follows.find_by(followed: user)
+  end
+
   private
 
   def good_username
