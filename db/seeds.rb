@@ -16,7 +16,7 @@ Whirly.start do
     if username.length < 5
       username = Faker::Twitter.screen_name while username.length < 5
     end
-    name = Faker::Name.first_name + Faker::Name.last_name
+    name = Faker::Name.first_name + ' ' + Faker::Name.last_name
     photo = Faker::Avatar.image
     User.create!(
       username: username,

@@ -9,7 +9,7 @@ RSpec.describe Opinion, type: :model do
       opinion.text = phrase + phrase
       expect(opinion.valid?).to be false
       opinion.valid?
-      expect(opinion.errors.messages).to include({:text=>["is too long (maximum is 200 characters)"]})
+      expect(opinion.errors.messages).to include({ text: ['is too long (maximum is 200 characters)'] })
       user.delete
     end
   end

@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
       user = User.new(username: 'hello world', name: 'foobar')
       expect(user.valid?).to be false
       user.valid?
-      expect(user.errors.messages).to include(:username => ["no spaces allowed"])
+      expect(user.errors.messages).to include(username: ['no spaces allowed'])
       user.username = 'helloworld'
       expect(user.valid?).to be true
     end
@@ -15,11 +15,11 @@ RSpec.describe User, type: :model do
       user = User.new(username: 'helo', name: 'foobar')
       expect(user.valid?).to be false
       user.valid?
-      expect(user.errors.messages).to include(:username => ["is too short (minimum is 5 characters)"])
+      expect(user.errors.messages).to include(username: ['is too short (minimum is 5 characters)'])
       user.username = 'helloworldthisisatestforthecharacters'
       expect(user.valid?).to be false
       user.valid?
-      expect(user.errors.messages).to include(:username => ["is too long (maximum is 20 characters)"])
+      expect(user.errors.messages).to include(username: ['is too long (maximum is 20 characters)'])
     end
 
     it 'should not have curse words' do
@@ -33,11 +33,11 @@ RSpec.describe User, type: :model do
       user = User.new(username: 'example', name: 'fo')
       expect(user.valid?).to be false
       user.valid?
-      expect(user.errors.messages).to include(:name => ["is too short (minimum is 3 characters)"])
+      expect(user.errors.messages).to include(name: ['is too short (minimum is 3 characters)'])
       user.name = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopq'
       expect(user.valid?).to be false
       user.valid?
-      expect(user.errors.messages).to include(:name => ["is too long (maximum is 25 characters)"])
+      expect(user.errors.messages).to include(name: ['is too long (maximum is 25 characters)'])
     end
   end
 end

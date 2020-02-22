@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col">
+    <%= current_view %>
+    <% if logged? %>
+      <%= link_to  'Log out', logout_path, method: :delete, class: 'btn btn-secundary' %>
+      <%= link_to  'Home', root_path, class: 'btn btn-secundary' %>
+    <% end %>
+  </div>
+</div>

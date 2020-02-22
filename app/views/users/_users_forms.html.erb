@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+        <%= render 'shared/errors_messages', object: f.object %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :username %>
+        <%= f.text_field :username, class: 'form-control' %>
+
+        <%= f.label :photo, 'Profile picture' %><span class='form-op'>Optional</span>
+        <%= f.text_field :photo, class: 'form-control' %>
+
+        <%= f.label :coverimage, 'Cover image' %><span class='form-op'>Optional</span>
+        <%= f.text_field :coverimage, class: 'form-control' %>
+
+        <%= f.submit 'Sign up!', class: 'btn btn-primary' %>
+      <% end %>
