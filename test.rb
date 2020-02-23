@@ -1,0 +1,1 @@
+p "<a href='/me/robert'>jlt_robert</a> jlt_robert this".gsub(/jlt_\w+\s/, 'test ')
