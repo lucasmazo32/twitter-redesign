@@ -18,6 +18,14 @@ class User < ApplicationRecord
     self.follows.find_by(followed: user)
   end
 
+  def num_following
+    follows.group(:follower_id).count[id]
+  end
+
+  def num_followers
+    followds.group(:followed_id).count[id]
+  end
+
   def network_tweets
     id_array = self.follows.map(&:followed_id) << id
     Opinion.where(author_id: id_array)

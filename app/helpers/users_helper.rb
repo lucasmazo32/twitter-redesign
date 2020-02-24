@@ -12,4 +12,8 @@ module UsersHelper
       link_to  "Follow", me_path(@user, params: { follow: 'follow' }), method: :post,class:'btn btn-primary'
     end
   end
+
+  def profile_pic(user)
+    image_tag(user.photo, alt: user.name, class: "profile-image")
+  end
 end

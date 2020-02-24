@@ -1,2 +1,8 @@
 <div class="profile-menu">
+  <div class="profile-pic">
+    <%= link_to me_path(current_user) do %>
+      <%= profile_pic current_user %>
+      <span><%= current_user.name %></span>
+    <% end %>
+  </div>
 </div>

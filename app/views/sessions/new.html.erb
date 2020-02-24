@@ -1,7 +1,8 @@
+<div class="top-row row"></div>
 <div class="row forms_row">
   <div class="col side_col"></div>
   <div class="col-1"></div>
-  <div class="col-4 login_col label_none">
+  <div class="col-3 login_col label_none">
   <%= image_tag 'logo.png', tag: 'justlikethatlogo', class: 'new_logo' %>
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
@@ -19,3 +20,4 @@
   <div class="col-1"></div>
   <div class="col side_col"></div>
 </div>
+<div class="row bottom-row"></div>

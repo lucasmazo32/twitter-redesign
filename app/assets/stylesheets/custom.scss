@@ -18,8 +18,24 @@
 
 .opinion {
   position: sticky;
-  top: 60px;
+  top: 70px;
   background: #fff;
+}
+
+.form-control {
+  resize: none;
+}
+
+#error_explanation {
+  margin: 5px -40px;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+  }
 }
 
 /* Italic fonts in forms */
@@ -73,6 +89,9 @@ label {
       flex-basis: calc(50% - 10px);
       margin: 5px 5px;
       width: 100%;
+      input {
+        border: solid 2px #8B9EB7 ;
+      }
     }
   }
 }
@@ -99,7 +118,7 @@ label {
 }
 
 .forms_row {
-  height: 100vh;
+  height: 80vh;
 }
 
 /* login */
@@ -143,15 +162,25 @@ label {
   }
 }
 
+.top-row {
+  height: 10vh;
+  background: #6AD48C;
+}
+
+.bottom-row {
+  height: 10vh;
+  background: #6AD48C;
+}
+
 /* nav */
 
 nav {
   background: linear-gradient(rgba(112,226,164,1) 0%, rgba(106,212,140,1) 100%);
-  grid-area: navbar;
   display: flex;
   align-items: center;
   position: sticky;
   top: 0;
+  grid-area: navbar;
   .nav_left {
     display: flex;
   }
@@ -199,7 +228,7 @@ nav {
   }
   #dropdown-settings {
     position: absolute;
-    transform: translate3d(-81.5px, 35px, 0px) !important;
+    transform: translate3d(-81.5px, 40px, 0px) !important;
   }
   .divider {
     border-bottom: 1.5px solid #fff;
@@ -212,9 +241,33 @@ nav {
 .profile-menu {
   grid-area: profilearea;
   height: 100vh;
-  background-color: #555B6E;
+  background-color: #1A2A3D;
   position: sticky;
   top: 0;
+  .profile-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    border-bottom: 1px solid gray;
+    a {
+      color: #667C90;
+      display: flex;
+      align-items: center;
+      .profile-image {
+        display: block;
+        height: 40px;
+        width: 40px;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      span {
+        text-transform: uppercase;
+        font-weight: 550;
+      }
+    }
+  }
 }
 
 .main-body {
@@ -225,10 +278,11 @@ nav {
 .container-fluid {
   .grid-sis {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 60px 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 70px 1fr;
     grid-template-areas: 
-    "profilearea navbar"
-    "profilearea mainbody";
+    "profilearea navbar navbar"
+    "profilearea mainbody whotofollow"
+    ;
   }
 }
