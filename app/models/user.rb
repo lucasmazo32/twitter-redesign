@@ -31,6 +31,11 @@ class User < ApplicationRecord
     Opinion.where(author_id: id_array)
   end
 
+  def random_wtf
+    id_array = self.follows.map(&:followed_id) << id
+    User.where.not(id: id_array).sample(3)
+  end
+
   private
 
   def good_username

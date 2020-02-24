@@ -229,7 +229,7 @@ nav {
   }
   #dropdown-settings {
     position: absolute;
-    transform: translate3d(-81.5px, 40px, 0px) !important;
+    transform: translate3d(-85.5px, 40px, 0px) !important;
   }
   .divider {
     border-bottom: 1.5px solid #fff;
@@ -344,7 +344,6 @@ nav {
   width: 100%;
   margin: 0;
   border-bottom: solid 1px lightgray;
-  border-right: solid 1px lightgray;
   position: sticky;
   top: 12vh;
   background-color: $background-color;
@@ -418,6 +417,94 @@ nav {
   .form-control {
     color: $undernav-fontcolor;
     font-size: 0.9rem;
+  }
+}
+
+/* who to follow */
+
+.who-to-follow {
+  grid-area: whotofollow;
+  border-left: solid 1px lightgrey;
+}
+
+.wtf-and-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: $font-prof;
+  border-bottom: 1px solid lightgray;
+  margin: 0 10%;
+  a {
+    color: $font-prof;
+  }
+  svg {
+    width: 18px;
+  }
+}
+
+.users-wtf {
+  border-bottom: solid 1px lightgrey;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    height: 30vh;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    li {
+      display: flex;
+      margin-left: 15px;
+      a { 
+        color: $undernav-fontcolor;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+      .text {
+        display: flex;
+        margin-left: 10px;
+        flex-flow: column;
+        span {
+          color: $undernav-fontcolor;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 50%;
+  }
+}
+
+.users-wtf-links {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  span {
+    vertical-align: text-bottom;
+    color: #4A9AD8;
+  }
+  a {
+    color: #4A9AD8;
+  }
+}
+
+.trending-mentions {
+  display: flex;
+  flex-flow: column;
+  color: $font-prof;
+  font-size: 0.9rem;
+  font-weight: bold;
+  span {
+    margin-left: 10%;
+    margin-top: 15px;
   }
 }
 
