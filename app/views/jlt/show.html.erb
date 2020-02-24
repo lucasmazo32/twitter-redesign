@@ -1,9 +1,8 @@
-<%= render 'layouts/nav' %>
-<div class="row">
-  <div class="col"></div>
-  <div class="col-5">
+<div class="grid-sis">
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/profile_menu' %>
+  <div class="main-body">
     <h5><%= link_to  @opinion.author.name, me_path(@opinion.author) %></h5>
     <p><%= @opinion.text %></p>
   </div>
-  <div class="col"></div>
 </div>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post '/jlt/new', to: 'jlt#create'
   post '/jlt/foreign', to: 'jlt#foreign'
   post '/me/:id', to: 'jlt#followers'
+  get '/me', to: 'users#me'
   root 'jlt#index'
 end

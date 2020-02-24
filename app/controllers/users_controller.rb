@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit delete]
   before_action :not_logged, except: %i[new create]
 
+  def me
+    redirect_to me_path(current_user)
+  end
+
   def show
     @user = User.friendly.find(params[:id])
   end

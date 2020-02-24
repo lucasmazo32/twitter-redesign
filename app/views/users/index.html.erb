@@ -1,6 +1,12 @@
-<%= render 'layouts/nav' %>
-<% @users.each do |user| %>
-  <h5>
-  <%= link_to  user.name, me_path(user) %>
-  </h5>
-<% end %>
+<div class="grid-sis">
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/profile_menu' %>
+  <div class="main-body">
+    <%= render 'layouts/nav' %>
+    <% @users.each do |user| %>
+      <h5>
+      <%= link_to  user.name, me_path(user) %>
+      </h5>
+    <% end %>
+  </div>
+</div>

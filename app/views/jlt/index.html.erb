@@ -1,12 +1,11 @@
-<%= render 'layouts/nav' %>
-<div class="row">
-  <div class="col"></div>
-  <div class="col-5">
+<div class="grid-sis">
+  <%= render 'layouts/profile_menu' %>
+  <%= render 'layouts/nav' %>
+  <div class="main-body">
     <%= render 'shared/new_opinion' %>
     <% @opinions.each do |opinion| %>
       <h6><%= link_to  opinion.author.name, jlt_path(opinion) %></h6>
       <p><%= opinion.link_jlt %></p>
     <% end %>
   </div>
-  <div class="col"></div>
 </div>
