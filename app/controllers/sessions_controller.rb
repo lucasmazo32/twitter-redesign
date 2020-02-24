@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username])
     if user
       log_in user
-      redirect_to me_path(user)
+      redirect_to root_path
     else
       flash.now[:danger] = 'The user does not exist'
       render 'new'

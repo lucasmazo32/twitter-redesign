@@ -44,8 +44,8 @@ class UsersController < ApplicationController
   def destroy
     @user = User.friendly.find(params[:id])
     @user.destroy
-    flash[:success] = 'User deleted succesfully'
-    redirect_to users_path
+    flash[:danger] = 'User deleted'
+    redirect_to login_path
   end
 
   private

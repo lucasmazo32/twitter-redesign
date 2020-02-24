@@ -5,4 +5,36 @@
       <span><%= current_user.name %></span>
     <% end %>
   </div>
+  <div class="followers-followings">
+    <div class="followings follow-style">
+      <h5><%= current_user.num_following %></h5>
+      <p>Following</p>
+    </div>
+    <div class="followers follow-style">
+      <h5><%= current_user.num_followers %></h5>
+      <p>Followers</p>
+    </div>
+  </div>
+  <div class="profile-links">
+    <div class="home profile-link">
+      <%= link_to me_path(current_user) do %>
+      <% end %>
+    </div>
+    <div class="connect profile-link">
+      <%= link_to me_path(current_user) do %>
+      <% end %>
+    </div>
+    <div class="discover profile-link">
+      <%= link_to me_path(current_user) do %>
+      <% end %>
+    </div>
+    <div class="profile profile-link">
+      <%= link_to me_path(current_user) do %>
+      <% end %>
+    </div>
+    <div class="statistics profile-link">
+      <%= link_to me_path(current_user) do %>
+      <% end %>
+    </div>
+  </div>
 </div>

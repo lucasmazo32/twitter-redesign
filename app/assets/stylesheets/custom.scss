@@ -18,7 +18,7 @@
 
 .opinion {
   position: sticky;
-  top: 70px;
+  top: 12vh;
   background: #fff;
 }
 
@@ -67,6 +67,8 @@ label {
 }
 
 .new_user {
+  margin: 0 50px;
+  min-width: 400px;
   form {
     display: flex;
     flex-wrap: wrap;
@@ -96,23 +98,6 @@ label {
   }
 }
 
-@media only screen and (max-width: 992px){
-  .new_user {
-    form {
-      .field_with_errors:nth-of-type(2), .field_with_errors:nth-of-type(4) {
-        flex-basis: calc(100% - 10px);
-        margin: 5px 5px;
-        width: 100%;
-      }
-      input {
-        width: 100%;
-        flex-basis: calc(100% - 10px);
-        margin: 5px 5px;
-      }
-    }
-  }
-}
-
 .side_col {
   background-color: #6AD48C;
 }
@@ -124,6 +109,8 @@ label {
 /* login */
 
 .login_col {
+  margin: 0 50px;
+  min-width: 400px;
   form {
     display: flex;
     flex-wrap: wrap;
@@ -244,31 +231,75 @@ nav {
   background-color: #1A2A3D;
   position: sticky;
   top: 0;
-  .profile-pic {
+}
+
+.profile-pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12vh;
+  border-bottom: 1px solid gray;
+  a {
+    color: #ADB8C5;
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 70px;
-    border-bottom: 1px solid gray;
-    a {
-      color: #667C90;
-      display: flex;
-      align-items: center;
-      .profile-image {
-        display: block;
-        height: 40px;
-        width: 40px;
-      }
-      &:hover {
-        text-decoration: none;
-      }
-      span {
-        text-transform: uppercase;
-        font-weight: 550;
-      }
+    .profile-image {
+      display: block;
+      background-color: lightgray;
+      border-radius: 2px;
+      height: 6vh;
+      width: 6vh;
+      margin-right: 10px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+    span {
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
   }
 }
+
+.followers-followings {
+  display: flex;
+  height: 10vh;
+  .follow-style {
+    flex-basis: 50%;
+    height: 100%;
+    border-bottom: 1px solid gray;
+    color: #ADB8C5;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    h5 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+  .followers {
+    border-left: 1px solid gray;
+  }
+}
+
+.profile-links {
+  .profile-link {
+    height: 8vh;
+    a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/* Grid system */
 
 .main-body {
   grid-area: mainbody;
@@ -279,7 +310,7 @@ nav {
   .grid-sis {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 70px 1fr;
+    grid-template-rows: 12vh 1fr;
     grid-template-areas: 
     "profilearea navbar navbar"
     "profilearea mainbody whotofollow"

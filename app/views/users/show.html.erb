@@ -2,6 +2,9 @@
   <%= render 'layouts/nav' %>
   <%= render 'layouts/profile_menu' %>
   <div class="main-body">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
     <%= foreign_view(@user) %>
     <h4><%= @user.name %><%= follow_or_stop(@user) %></h4>
     <p><%= link_to  "Edit", edit_user_path(@user), class:'btn btn-primary' %></p>
