@@ -1,7 +1,8 @@
 <div class="grid-sis">
   <%= render 'layouts/nav' %>
   <%= render 'layouts/profile_menu' %>
-  <div class="main-body">
+  <div class="main-body dis-none-option-video">
+    <%= render 'layouts/main_options' %>
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>

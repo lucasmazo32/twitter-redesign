@@ -1,6 +1,14 @@
 @import "bootstrap";
 
+$font-prof: #ADB8C5;
+$logo-color: #6AD48C;
+$background-color: #F5F6F8;
+
 /* General */
+
+body {
+  background-color: $background-color;
+}
 
 :root {
   --font-family-sans-serif: 'Noto Serif', Arial, Helvetica, sans-serif;
@@ -18,8 +26,8 @@
 
 .opinion {
   position: sticky;
-  top: 12vh;
-  background: #fff;
+  top: 22vh;
+  background: #F5F6F8;
 }
 
 .form-control {
@@ -82,8 +90,8 @@ label {
     }
     input[type="submit"] {
       flex-basis: 100%;
-      background-color: #6AD48C;
-      border-color: #6AD48C;
+      background-color: $logo-color;
+      border-color: $logo-color;
       font-weight: bold;
       font-size: 1.2rem;
     }
@@ -99,7 +107,7 @@ label {
 }
 
 .side_col {
-  background-color: #6AD48C;
+  background-color: $logo-color;
 }
 
 .forms_row {
@@ -124,8 +132,8 @@ label {
     }
     input[type="submit"] {
       flex-basis: 100%;
-      background-color: #6AD48C;
-      border-color: #6AD48C;
+      background-color: $logo-color;
+      border-color: $logo-color;
       font-weight: bold;
       font-size: 1rem;
     }
@@ -135,7 +143,7 @@ label {
     width: 100%;
     text-align: center;
     a:hover {
-      background-color: #6AD48C;
+      background-color: $logo-color;
       color: #fff;
       text-emphasis: bold;
       transition: ease, color 0.2s;
@@ -151,12 +159,12 @@ label {
 
 .top-row {
   height: 10vh;
-  background: #6AD48C;
+  background: $logo-color;
 }
 
 .bottom-row {
   height: 10vh;
-  background: #6AD48C;
+  background: $logo-color;
 }
 
 /* nav */
@@ -168,8 +176,13 @@ nav {
   position: sticky;
   top: 0;
   grid-area: navbar;
+  z-index: 5;
   .nav_left {
     display: flex;
+    a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
   }
   .white_logo {
     width: 30px;
@@ -194,10 +207,10 @@ nav {
   }
   .a_svg:hover {
     color: #fff;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
   }
   .dropdown-menu {
-    background: #6AD48C;
+    background: $logo-color;
     border: transparent;
     li {
       display: flex;
@@ -223,6 +236,10 @@ nav {
   }
 }
 
+.navbar-nav {
+  justify-content: center;
+}
+
 /* profile menu */
 
 .profile-menu {
@@ -240,7 +257,7 @@ nav {
   height: 12vh;
   border-bottom: 1px solid gray;
   a {
-    color: #ADB8C5;
+    color: $font-prof;
     display: flex;
     align-items: center;
     .profile-image {
@@ -268,7 +285,7 @@ nav {
     flex-basis: 50%;
     height: 100%;
     border-bottom: 1px solid gray;
-    color: #ADB8C5;
+    color: $font-prof;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -296,13 +313,13 @@ nav {
       align-items: center;
       width: 100%;
       height: 100%;
-      color: #ADB8C5;
+      color: $font-prof;
       span, i {
         margin-left: 20px;
       }
       &:hover {
         text-decoration: none;
-        background-color: #6AD48C;
+        background-color: $logo-color;
         color: rgb(255, 255, 255);
         transition: ease;
         transition-duration: 0.7s;
@@ -315,9 +332,71 @@ nav {
 }
 
 .profile-svg {
-  color: #ADB8C5;
+  color: $font-prof;
   width: 18px;
 }
+
+/* main options */
+
+.main-options {
+  height: 10vh;
+  width: 100%;
+  margin: 0;
+  border-bottom: solid 1px lightgray;
+  border-right: solid 1px lightgray;
+  position: sticky;
+  top: 12vh;
+  background-color: $background-color;
+  z-index: 1;
+  .options {
+    a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      text-transform: uppercase;
+      color: $font-prof;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+        border-bottom: 5px solid $logo-color;
+        color: #2A3A4A;
+        transition: ease;
+        transition-duration: 0.3s;
+      }
+      span {
+        margin: 0 20px;
+      }
+    }
+  }
+}
+
+.dis-none-options {
+  .options-followers {
+    display: none;
+  }
+  .options-following {
+    display: none;
+  }
+  .options-favorites {
+    display: none;
+  }
+  .options-lists {
+    display: none;
+  }
+}
+
+.dis-none-option-video {
+  .options-videos {
+    display: none;
+  }
+}
+
+/* opinion */
+
+
 
 /* Grid system */
 

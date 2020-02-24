@@ -1,7 +1,8 @@
 <div class="grid-sis">
   <%= render 'layouts/profile_menu' %>
   <%= render 'layouts/nav' %>
-  <div class="main-body">
+  <div class="main-body dis-none-options">
+    <%= render 'layouts/main_options' %>
     <%= render 'shared/new_opinion' %>
     <% @opinions.each do |opinion| %>
       <h6><%= link_to  opinion.author.name, jlt_path(opinion) %></h6>
