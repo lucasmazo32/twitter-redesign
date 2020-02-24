@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Credit
+
+https://fontawesome.com/
+
+logomakr.com

@@ -121,4 +121,27 @@ label {
       transition-duration: 1s;
     }
   }
+  .alert {
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+/* nav */
+
+nav {
+  background: linear-gradient(rgba(112,226,164,1) 0%, rgba(106,212,140,1) 100%);
+  .white_logo {
+    width: 25px;
+  }
+  .iconsize {
+    width: 20px;
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
+  .a_svg {
+    color: #376E99;
+  }
 }
