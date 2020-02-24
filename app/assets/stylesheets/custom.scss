@@ -293,10 +293,30 @@ nav {
     height: 8vh;
     a {
       display: flex;
+      align-items: center;
       width: 100%;
       height: 100%;
+      color: #ADB8C5;
+      span, i {
+        margin-left: 20px;
+      }
+      &:hover {
+        text-decoration: none;
+        background-color: #6AD48C;
+        color: rgb(255, 255, 255);
+        transition: ease;
+        transition-duration: 0.7s;
+        .profile-svg {
+          color: rgb(255, 255, 255);
+        }
+      }
     }
   }
+}
+
+.profile-svg {
+  color: #ADB8C5;
+  width: 18px;
 }
 
 /* Grid system */
