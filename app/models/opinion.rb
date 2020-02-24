@@ -1,5 +1,6 @@
 class Opinion < ApplicationRecord
   before_save :languagefilter
+  default_scope { order(created_at: :desc) }
 
   belongs_to :author, class_name: 'User'
   validates :text, presence: true, length: { in: 1..300 }
@@ -7,7 +8,6 @@ class Opinion < ApplicationRecord
   def link_jlt
     scanned = text.scan(/jlt_\w+\s/)
     return self.text.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe if scanned.empty?
-    p 'Im effective'
     scanned = scanned.map{ |x| x[4...x.length-1] }
     scanned.each do |username|
       if user = User.find_by(username: username)

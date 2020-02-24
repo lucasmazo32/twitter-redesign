@@ -2,7 +2,7 @@ class JltController < ApplicationController
   before_action :not_logged
   
   def index
-    @opinions = Opinion.includes(:author).order(created_at: :desc)
+    @opinions = current_user.network_tweets.includes(:author)
   end
 
   def show

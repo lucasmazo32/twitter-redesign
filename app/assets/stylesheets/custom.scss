@@ -1,5 +1,14 @@
 @import "bootstrap";
 
+/* General */
+
+:root {
+  --font-family-sans-serif: 'Noto Serif', Arial, Helvetica, sans-serif;
+  --font-family-monospace: 'Noto Serif', Arial, Helvetica, sans-serif;
+}
+
+/* Italic fonts in forms */
+
 .form-op {
   margin-left: 1rem;
   font-style: italic;
@@ -9,4 +18,107 @@
 label {
   margin-bottom: 0.1rem;
   margin-top: 0.4rem;
+}
+
+/* New users page */
+
+.new_logo {
+  width: 300px;
+  max-width: 80%;
+  display: block;
+  margin: 50px auto;
+}
+
+.label_none {
+  label {
+    display: none;
+  }
+}
+
+.new_user {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+      display: none;
+    }
+    input {
+      width: 100%;
+      flex-basis: calc(50% - 10px);
+      margin: 5px 5px;
+    }
+    input[type="submit"] {
+      flex-basis: 100%;
+      background-color: #6AD48C;
+      border-color: #6AD48C;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .field_with_errors:nth-of-type(2), .field_with_errors:nth-of-type(4) {
+      flex-basis: calc(50% - 10px);
+      margin: 5px 5px;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px){
+  .new_user {
+    form {
+      .field_with_errors:nth-of-type(2), .field_with_errors:nth-of-type(4) {
+        flex-basis: calc(100% - 10px);
+        margin: 5px 5px;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        flex-basis: calc(100% - 10px);
+        margin: 5px 5px;
+      }
+    }
+  }
+}
+
+.side_col {
+  background-color: #6AD48C;
+}
+
+.forms_row {
+  height: 100vh;
+}
+
+/* login */
+
+.login_col {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+      display: none;
+    }
+    input {
+      width: 100%;
+      flex-basis: calc(100% - 10px);
+      margin: 5px 5px;
+    }
+    input[type="submit"] {
+      flex-basis: 100%;
+      background-color: #6AD48C;
+      border-color: #6AD48C;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+  span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    a:hover {
+      background-color: #6AD48C;
+      color: #fff;
+      text-emphasis: bold;
+      transition: ease, color 0.2s;
+      transition-duration: 1s;
+    }
+  }
 }

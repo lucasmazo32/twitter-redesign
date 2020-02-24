@@ -1,3 +1,4 @@
+<%= render 'layouts/nav' %>
 <% @users.each do |user| %>
   <h5>
   <%= link_to  user.name, me_path(user) %>
