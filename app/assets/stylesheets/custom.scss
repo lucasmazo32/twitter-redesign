@@ -3,6 +3,7 @@
 $font-prof: #ADB8C5;
 $logo-color: #6AD48C;
 $background-color: #F5F6F8;
+$undernav-fontcolor: #2A3A4A;
 
 /* General */
 
@@ -396,7 +397,29 @@ nav {
 
 /* opinion */
 
-
+.opinion {
+  padding: 20px;
+  input[type="submit"] {
+    display: none;
+  }
+  label {
+    color: $font-prof;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+  }
+  .form-control {
+    color: $undernav-fontcolor;
+    font-size: 0.9rem;
+  }
+}
 
 /* Grid system */
 

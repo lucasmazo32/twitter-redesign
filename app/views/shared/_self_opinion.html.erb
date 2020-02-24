@@ -1,7 +1,7 @@
 <div class="opinion">
   <%= form_for(:opinion, url: jlt_foreign_path) do |f| %>
-    <%= f.label :text, "Just Like That!" %><span class='form-op'>Maximum 200 characters</span>
-    <%= f.text_area :text, class: 'form-control', placeholder: "Write something cool, or not..." %>
+    <%= f.label :text, "Just Like That!" %>
+    <%= f.text_field :text, class: 'form-control', placeholder: "Write something cool, or not...", onkeyup: 'TextLimit()', maxlength: '200' %>
 
     <%= f.submit 'Post JLT', class: 'btn btn-primary' %>
   <% end %>
