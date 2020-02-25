@@ -7,7 +7,7 @@
     <%= render 'shared/new_opinion' %>
       <div class="posts-container">
         <% @jlt.each do |opinion| %>
-          <div class="jlt-container">
+          <section class="jlt-container">
             <%= profile_pic opinion.author %>
             <div class="jlt-text">
               <div class="jlt-name">
@@ -16,7 +16,7 @@
               </div>
               <p><%= opinion.link_jlt %></p>
             </div>
-          </div>
+          </section>
         <% end %>
         <%= will_paginate %>
       </div>
