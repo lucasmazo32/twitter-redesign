@@ -2,7 +2,8 @@ class JltController < ApplicationController
   before_action :not_logged
   
   def index
-    @opinions = current_user.network_tweets.includes(:author)
+    #@opinions = current_user.network_tweets.includes(:author)
+    @jlt = current_user.network_tweets.paginate(page: params[:page])
   end
 
   def show

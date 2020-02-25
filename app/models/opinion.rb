@@ -1,9 +1,9 @@
 class Opinion < ApplicationRecord
   before_save :languagefilter
   default_scope { order(created_at: :desc) }
-
   belongs_to :author, class_name: 'User'
   validates :text, presence: true, length: { in: 1..300 }
+  self.per_page = 10
 
   def link_jlt
     scanned = text.scan(/jlt_\w+\s/)
@@ -17,6 +17,20 @@ class Opinion < ApplicationRecord
     end
     self.save
     self.text.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe
+  end
+
+  def created_ago
+    time = Time.now - created_at
+    case time
+    when 0..60
+      "1 minute"
+    when 120..3600
+      "#{(time/60).to_i} minutes"
+    when 3600..86400
+      "#{(time/3600).to_i}H"
+    else
+      created_at.strftime("%-d %^b")
+    end
   end
 
   private

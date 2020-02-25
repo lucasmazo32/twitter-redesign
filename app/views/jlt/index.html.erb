@@ -5,9 +5,20 @@
   <div class="main-body dis-none-options">
     <%= render 'layouts/main_options' %>
     <%= render 'shared/new_opinion' %>
-    <% @opinions.each do |opinion| %>
-      <h6><%= link_to  opinion.author.name, jlt_path(opinion) %></h6>
-      <p><%= opinion.link_jlt %></p>
-    <% end %>
+      <div class="posts-container">
+        <% @jlt.each do |opinion| %>
+          <div class="jlt-container">
+            <%= profile_pic opinion.author %>
+            <div class="jlt-text">
+              <div class="jlt-name">
+                <h6><%= link_to opinion.author.name, me_path(opinion.author) %></h6>
+                <span><%= opinion.created_ago %></span>
+              </div>
+              <p><%= opinion.link_jlt %></p>
+            </div>
+          </div>
+        <% end %>
+        <%= will_paginate %>
+      </div>
   </div>
 </div>
