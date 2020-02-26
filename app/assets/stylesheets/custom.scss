@@ -10,6 +10,7 @@ $twitter-blue: #4A9AD8;
 
 body {
   background-color: $background-color;
+  font-size: 1.1vw;
 }
 
 :root {
@@ -47,17 +48,36 @@ body {
   }
 }
 
+/* Grid system */
+
+.main-body {
+  grid-area: mainbody;
+  overflow: visible;
+}
+
+.container-fluid {
+  .grid-sis {
+    display: grid;
+    grid-template-columns: 16.66vw 1fr 22.5vw;
+    grid-template-rows: 6vw 1fr;
+    grid-template-areas: 
+    "profilearea navbar navbar"
+    "profilearea mainbody whotofollow"
+    ;
+  }
+}
+
 /* Italic fonts in forms */
 
 .form-op {
-  margin-left: 1rem;
+  margin-left: 1em;
   font-style: italic;
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 label {
-  margin-bottom: 0.1rem;
-  margin-top: 0.4rem;
+  margin-bottom: 0.1em;
+  margin-top: 0.4em;
 }
 
 /* New users page */
@@ -66,7 +86,7 @@ label {
   width: 300px;
   max-width: 80%;
   display: block;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 .label_none {
@@ -94,7 +114,7 @@ label {
       background-color: $logo-color;
       border-color: $logo-color;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.2em;
     }
     .field_with_errors:nth-of-type(2), .field_with_errors:nth-of-type(4) {
       flex-basis: calc(50% - 10px);
@@ -112,7 +132,8 @@ label {
 }
 
 .forms_row {
-  height: 80vh;
+  height: 80vh; /* This vh is reviewd and everything is ok */
+  min-height: 540px;
 }
 
 /* login */
@@ -136,7 +157,7 @@ label {
       background-color: $logo-color;
       border-color: $logo-color;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1em;
     }
   }
   span {
@@ -159,12 +180,12 @@ label {
 }
 
 .top-row {
-  height: 10vh;
+  height: 10vh; /* This vh is reviewd and everything is ok */
   background: $logo-color;
 }
 
 .bottom-row {
-  height: 10vh;
+  height: 10vh; /* This vh is reviewd and everything is ok */
   background: $logo-color;
 }
 
@@ -178,7 +199,7 @@ nav {
   top: 0;
   grid-area: navbar;
   z-index: 5;
-  height: 12vh;
+  height: 6vw;
   .nav_left {
     display: flex;
     a {
@@ -187,13 +208,13 @@ nav {
     }
   }
   .white_logo {
-    width: 40px;
-    margin-left: 40px;
+    width: 2.7vw;
+    margin-left: 2.7vw;
     align-self: center;
   }
   .iconsize {
-    width: 18px;
-    margin: 0 20px;
+    width: 1.3vw;
+    margin: 0 1.3vw;
   }
   .dropdown-toggle {
     .iconsize {
@@ -218,7 +239,7 @@ nav {
       justify-content: center;
     }
     a {
-      font-size: 1.2rem;
+      font-size: 1.2em;
       font-weight: bold;
       color: #fff;
     }
@@ -245,7 +266,7 @@ nav {
 
 .profile-menu {
   grid-area: profilearea;
-  height: 100vh;
+  height: 100vh; /* This vh is reviewd and everything is ok */
   background-color: #1A2A3D;
   position: sticky;
   top: 0;
@@ -255,7 +276,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 12vh;
+  height: 6vw;
   border-bottom: 1px solid gray;
   a {
     color: $font-prof;
@@ -265,8 +286,8 @@ nav {
       display: block;
       background-color: lightgray;
       border-radius: 2px;
-      height: 6vh;
-      width: 6vh;
+      height: 3vw;
+      width: 3vw;
       margin-right: 10px;
     }
     &:hover {
@@ -274,14 +295,14 @@ nav {
     }
     span {
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 0.9em;
     }
   }
 }
 
 .followers-followings {
   display: flex;
-  height: 10vh;
+  height: 4.65vw;
   .follow-style {
     flex-basis: 50%;
     height: 100%;
@@ -293,12 +314,12 @@ nav {
     justify-content: center;
     p {
       margin: 0;
-      font-size: 0.9rem;
+      font-size: 1em;
     }
     h5 {
       margin: 0;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.27em;
     }
   }
   .followers {
@@ -308,7 +329,7 @@ nav {
 
 .profile-links {
   .profile-link {
-    height: 8vh;
+    height: 3.72vw;
     a {
       display: flex;
       align-items: center;
@@ -334,18 +355,16 @@ nav {
 
 .profile-svg {
   color: $font-prof;
-  width: 18px;
+  width: 1.3vw;
 }
 
 /* main options */
 
 .main-options {
-  height: 10vh;
+  height: 4.65vw;
   width: 100%;
   margin: 0;
   border-bottom: solid 1px lightgray;
-  position: sticky;
-  top: 12vh;
   background-color: $background-color;
   z-index: 1;
   .options {
@@ -434,7 +453,7 @@ nav {
   }
   .form-control {
     color: $undernav-fontcolor;
-    font-size: 0.9rem;
+    font-size: 0.9em;
   }
 }
 
@@ -444,17 +463,17 @@ nav {
   grid-area: whotofollow;
   border-left: solid 1px lightgrey;
   position: sticky;
-  top: 12vh;
-  height: 88vh;
+  top: 6vw;
+  height: fit-content;
 }
 
 .wtf-and-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 10vh;
+  height: 4.65vw;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   font-weight: bold;
   color: $font-prof;
   border-bottom: 1px solid lightgray;
@@ -473,17 +492,17 @@ nav {
     list-style-type: none;
     padding-left: 0;
     display: flex;
-    height: 30vh;
+    height: 13.95vw;
     flex-flow: column;
     align-items: flex-start;
     justify-content: space-around;
     li {
       display: flex;
-      margin-left: 15px;
+      margin-left: 10%;
       a { 
         color: $undernav-fontcolor;
         font-weight: bold;
-        font-size: 0.9rem;
+        font-size: 0.9em;
       }
       .text {
         display: flex;
@@ -491,7 +510,7 @@ nav {
         flex-flow: column;
         span {
           color: $undernav-fontcolor;
-          font-size: 0.8rem;
+          font-size: 0.8em;
         }
       }
     }
@@ -507,7 +526,7 @@ nav {
 .users-wtf-links {
   margin-left: 20px;
   margin-bottom: 15px;
-  font-size: 0.85rem;
+  font-size: 0.85em;
   span {
     vertical-align: text-bottom;
     color: $twitter-blue;
@@ -521,7 +540,7 @@ nav {
   display: flex;
   flex-flow: column;
   color: $font-prof;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   font-weight: bold;
   span {
     margin-left: 10%;
@@ -552,29 +571,30 @@ nav {
     padding: 0;
   }
   img {
-    width: 8vh;
-    height: 8vh;
+    width: 3.8vw;
+    height: 3.8vw;
     background-color: lightgray;
     border-radius: 2px;
   }
   .jlt-text {
     display: flex;
-    height: 8vh;
+    height: 3.8vw;
     flex-grow: 1;
     flex-flow: column;
     margin-left: 10px;
     h6 {
+      font-size: 0.92em;
       a {
         color: $undernav-fontcolor;
         font-weight: bold;
-        font-size: 0.92rem;
+        font-size: 0.92em;
         &:hover {
           text-decoration: none;
         }
       }
     }
     span {
-      font-size: 0.92rem;
+      font-size: 0.92em;
       line-height: 1.2;
     }
     .jlt-name {
@@ -582,7 +602,7 @@ nav {
       justify-content: space-between;
     }
     p {
-      font-size: 0.9rem;
+      font-size: 0.9em;
       margin-right: 30px;
       a {
         color: $twitter-blue;
@@ -644,21 +664,110 @@ div[class="pagination"] {
   }
 }
 
-/* Grid system */
+/* cover image container */
 
-.main-body {
-  grid-area: mainbody;
-  overflow: visible;
+.cover-image-container {
+  height: 20vw;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
-.container-fluid {
-  .grid-sis {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 12vh 1fr;
-    grid-template-areas: 
-    "profilearea navbar navbar"
-    "profilearea mainbody whotofollow"
-    ;
+/* Who to profile */
+
+.profile-info {
+  height: 20vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 7.35vw;
+    width: 7.35vw;
+  }
+}
+
+.profile-name {
+  text-transform: uppercase;
+  color: $undernav-fontcolor;
+  font-weight: bold;
+}
+
+.profile-info-text {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.profile-username {
+  color: grey;
+}
+
+.pic-and-follow {
+  display: flex;
+  align-items: center;
+  margin-top: 2.1vw;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  i {
+    display: flex;
+    width: 20px;
+    height: 20px;
+  }
+  a {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid grey;
+    border-radius: 50%;
+    color: grey;
+  }
+}
+
+.no-follow:hover {
+  background-color: red;
+  color: red;
+  border-color: white;
+  transition: ease;
+  transition-duration: 0.5s;
+}
+
+.yes-follow:hover {
+  background-color: $logo-color;
+  color: white;
+  border-color: white;
+  transition: ease;
+  transition-duration: 0.5s;
+}
+
+.profile-user-info {
+  display: flex;
+  width: 100%;
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  height: 5.45vw;
+  .user-info {
+    flex-basis: 33%;
+    text-align: center;
+    border-right: 1px lightgray solid;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    h5 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+    p {
+      font-size: 0.9em;
+      margin: 0;
+      color: gray;
+    }
+  }
+  .user-info-jlts {
+    flex-basis: 34%;
   }
 }

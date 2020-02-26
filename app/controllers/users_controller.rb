@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
+    @users = @user.opinions.paginate(page: params[:page])
   end
 
   def index
@@ -21,6 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       redirect_to me_path(@user)
     else
       render 'new'
