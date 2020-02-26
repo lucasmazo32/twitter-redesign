@@ -17,11 +17,3 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-
-function TextLimit(){
-  var text = document.getElementById('opinion_text');
- if (text.value.length > 200){
-      alert('You have written 180 of 200 maximum allowed');
-      text.value = text.value.substring(0,180);
-  }
-}  

@@ -1,10 +1,11 @@
 @import "bootstrap";
 
 $font-prof: #ADB8C5;
-$logo-color: #6AD48C;
+$logo-color: #29B55F;
 $background-color: #F5F6F8;
 $undernav-fontcolor: #2A3A4A;
 $twitter-blue: #4A9AD8;
+$login-color: #29B55f;
 
 /* General */
 
@@ -87,6 +88,7 @@ label {
   max-width: 80%;
   display: block;
   margin: 30px auto;
+  filter: saturate(1.54) brightness(0.85542) hue-rotate(-4deg);
 }
 
 .label_none {
@@ -111,8 +113,8 @@ label {
     }
     input[type="submit"] {
       flex-basis: 100%;
-      background-color: $logo-color;
-      border-color: $logo-color;
+      background-color: $login-color;
+      border-color: $login-color;
       font-weight: bold;
       font-size: 1.2em;
     }
@@ -128,7 +130,7 @@ label {
 }
 
 .side_col {
-  background-color: $logo-color;
+  background-color: $login-color;
 }
 
 .forms_row {
@@ -154,8 +156,8 @@ label {
     }
     input[type="submit"] {
       flex-basis: 100%;
-      background-color: $logo-color;
-      border-color: $logo-color;
+      background-color: $login-color;
+      border-color: $login-color;
       font-weight: bold;
       font-size: 1em;
     }
@@ -165,7 +167,7 @@ label {
     width: 100%;
     text-align: center;
     a:hover {
-      background-color: $logo-color;
+      background-color: $login-color;
       color: #fff;
       text-emphasis: bold;
       transition: ease, color 0.2s;
@@ -181,18 +183,18 @@ label {
 
 .top-row {
   height: 10vh; /* This vh is reviewd and everything is ok */
-  background: $logo-color;
+  background: $login-color;
 }
 
 .bottom-row {
   height: 10vh; /* This vh is reviewd and everything is ok */
-  background: $logo-color;
+  background: $login-color;
 }
 
 /* nav */
 
 nav {
-  background: linear-gradient(rgba(112,226,164,1) 0%, rgba(106,212,140,1) 100%);
+  background: linear-gradient(#29B55F 0%, #329F5B 100%);
   display: flex;
   align-items: center;
   position: sticky;
@@ -225,14 +227,14 @@ nav {
     display: none;
   }
   .a_svg {
-    color: #8B9EB7;
+    color: #E0DAE5;
   }
   .a_svg:hover {
     color: #fff;
     transition-duration: 0.5s;
   }
   .dropdown-menu {
-    background: $logo-color;
+    background: #329F5B;
     border: transparent;
     li {
       display: flex;
@@ -250,7 +252,7 @@ nav {
   }
   #dropdown-settings {
     position: absolute;
-    transform: translate3d(-85.5px, 40px, 0px) !important;
+    transform: translate3d(-85.5px, 3.35vw, 0px) !important;
   }
   .divider {
     border-bottom: 1.5px solid #fff;
@@ -415,18 +417,6 @@ nav {
     display: none;
   }
   .options-following {
-    display: none;
-  }
-  .options-favorites {
-    display: none;
-  }
-  .options-lists {
-    display: none;
-  }
-}
-
-.dis-none-option-video {
-  .options-videos {
     display: none;
   }
 }

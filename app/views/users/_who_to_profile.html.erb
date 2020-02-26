@@ -19,41 +19,14 @@
         <p>JLT's</p>
       </div>
       <div class="user-info-following user-info">
-        <h5><%= current_user.num_following %></h5>
+        <h5><%= @user.num_following %></h5>
         <p>Following</p>
       </div>
       <div class="user-info-followers user-info">
-        <h5><%= current_user.num_followers %></h5>
+        <h5><%= @user.num_followers %></h5>
         <p>Followers</p>
       </div>
     </div>
   </div>
-  <div class="wtf-and-button">
-    <span>Followed by</span>
-  </div>
-  <div class="users-wtf">
-    <ul>
-      <% if @user.followds.any? %>
-        <% @user.followds.first(3) do |random_user| %>
-          <li>
-            <%= profile_pic random_user %>
-            <div class="text">
-              <%= link_to  "#{random_user.name}", me_path(random_user) %>
-              <span><%= "#{random_user.num_followers} " %> Follower(s)</span>
-            </div>
-          </li>
-        <% end %>
-      <% else %>
-        <% current_user.random_wtf.each do |random_user| %>
-          <li>
-            <%= profile_pic random_user %>
-            <div class="text">
-              <%= link_to  "#{random_user.name}", me_path(random_user) %>
-              <span><%= "#{random_user.num_followers} " %> Follower(s)</span>
-            </div>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
+  <%= whotoprofile @user %>
 </div>

@@ -1,7 +1,7 @@
 <div class="opinion">
   <%= form_for(:opinion, url: jlt_foreign_path) do |f| %>
     <%= f.label :text, "Just Like That #{@user.name}!" %>
-    <%= f.text_field :text, class: 'form-control', value: "jlt_#{User.friendly.find(params[:id]).username} ", onkeyup: 'TextLimit()', maxlength: '200' %>
+    <%= f.text_field :text, class: 'form-control', value: "jlt_#{User.friendly.find(params[:id]).username} ", maxlength: '200' %>
 
     <%= f.submit 'Post JLT', class: 'btn btn-primary' %>
   <% end %>

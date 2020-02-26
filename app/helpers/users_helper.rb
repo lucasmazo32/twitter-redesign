@@ -32,4 +32,9 @@ module UsersHelper
   def random_to_follow(user)
     user.random_wtf
   end
+
+  def followers3(user)
+    id_array = user.followds.map(&:follower_id)
+    User.where(id: id_array).sample(3)
+  end
 end
