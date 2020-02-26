@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'sassc'
 # For bootstrap
-gem 'sassc-rails', '>= 2.1.0'
 gem 'bootstrap', '~> 4.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 gem 'sprockets-rails', '~> 2.3.2'
 # For seeing the tables generated in the rails console
 gem 'hirb'

@@ -1,3 +1,120 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-prof: #ADB8C5;
+$logo-color: #29B55F;
+$background-color: #F5F6F8;
+$undernav-fontcolor: #2A3A4A;
+$twitter-blue: #4A9AD8;
+$login-color: #29B55f;
+
+/* New users page */
+
+.new_logo {
+  width: 300px;
+  max-width: 80%;
+  display: block;
+  margin: 30px auto;
+  filter: saturate(1.54) brightness(0.85542) hue-rotate(-4deg);
+}
+
+.label_none {
+  label {
+    display: none;
+  }
+}
+
+.new_user {
+  margin: 0 50px;
+  min-width: 400px;
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+      display: none;
+    }
+    input {
+      width: 100%;
+      flex-basis: calc(50% - 10px);
+      margin: 5px 5px;
+    }
+    input[type="submit"] {
+      flex-basis: 100%;
+      background-color: $login-color;
+      border-color: $login-color;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .field_with_errors:nth-of-type(2), .field_with_errors:nth-of-type(4) {
+      flex-basis: calc(50% - 10px);
+      margin: 5px 5px;
+      width: 100%;
+      input {
+        border: solid 2px #8B9EB7 ;
+      }
+    }
+  }
+}
+
+.side_col {
+  background-color: $login-color;
+}
+
+.forms_row {
+  height: 80vh; /* This vh is reviewd and everything is ok */
+  min-height: 540px;
+}
+
+/* login */
+
+.login_col {
+  margin: 0 50px;
+  min-width: 400px;
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+      display: none;
+    }
+    input {
+      width: 100%;
+      flex-basis: calc(100% - 10px);
+      margin: 5px 5px;
+    }
+    input[type="submit"] {
+      flex-basis: 100%;
+      background-color: $login-color;
+      border-color: $login-color;
+      font-weight: bold;
+      font-size: 1em;
+    }
+  }
+  span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    a:hover {
+      background-color: $login-color;
+      color: #fff;
+      text-emphasis: bold;
+      transition: ease, color 0.2s;
+      transition-duration: 1s;
+    }
+  }
+  .alert {
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.top-row {
+  height: 10vh; /* This vh is reviewd and everything is ok */
+  background: $login-color;
+}
+
+.bottom-row {
+  height: 10vh; /* This vh is reviewd and everything is ok */
+  background: $login-color;
+}

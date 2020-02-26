@@ -1,3 +1,513 @@
 // Place all the styles related to the jlt controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-prof: #ADB8C5;
+$logo-color: #29B55F;
+$background-color: #F5F6F8;
+$undernav-fontcolor: #2A3A4A;
+$twitter-blue: #4A9AD8;
+$login-color: #29B55f;
+
+/* nav */
+
+nav {
+  background: linear-gradient(#29B55F 0%, #329F5B 100%);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  grid-area: navbar;
+  z-index: 5;
+  height: 6vw;
+  .nav_left {
+    display: flex;
+    a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .white_logo {
+    width: 2.7vw;
+    margin-left: 2.7vw;
+    align-self: center;
+  }
+  .iconsize {
+    width: 1.3vw;
+    margin: 0 1.3vw;
+  }
+  .dropdown-toggle {
+    .iconsize {
+      margin-right: 40px;
+    }
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
+  .a_svg {
+    color: #E0DAE5;
+    i {
+      height: 100%;
+      display: flex;
+    }
+  }
+
+  .a_svg:hover {
+    color: #fff;
+    transition-duration: 0.5s;
+  }
+  .dropdown-menu {
+    background: #329F5B;
+    border: transparent;
+    li {
+      display: flex;
+      justify-content: center;
+    }
+    a {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #fff;
+    }
+    a:hover {
+      text-decoration: none;
+      color: lightslategray;
+    }
+  }
+  #dropdown-settings {
+    position: absolute;
+    transform: translate3d(-85.5px, 3.35vw, 0px) !important;
+  }
+  .divider {
+    border-bottom: 1.5px solid #fff;
+    margin: 1px 4px;
+  }
+}
+
+.navbar-nav {
+  justify-content: center;
+}
+
+.search-form {
+  input[type='submit'] {
+    display: none;
+  }
+  .search-field {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    i {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: -1vw;
+      cursor: pointer;
+      user-select: none;
+      transition-duration: 0.5s;
+      height: 100%;
+      &:hover {
+        color: #fff;
+      }
+    }
+    input {
+      border:none;
+      background: transparent;
+      border-radius: 20px;
+      transition: ease-in;
+      transition-duration: 0.8s;
+      width: 0px;
+      padding: 8px 0px 8px 34px;
+      &:focus {
+        background: $background-color;
+        outline: none;
+        width: 20vw;
+        padding: 8px 12px 8px 34px;
+        border-color: $undernav-fontcolor;
+      }
+    }
+    input:focus + i {
+      color: $undernav-fontcolor;
+      pointer-events: none;
+    }
+  }
+}
+
+.search-form {
+  i {
+      color: #E0DAE5;
+      transition-duration: 0.5s;
+  }
+}
+
+
+/* profile menu */
+
+.profile-menu {
+  grid-area: profilearea;
+  height: 100vh; /* This vh is reviewd and everything is ok */
+  background-color: #1A2A3D;
+  position: sticky;
+  top: 0;
+}
+
+.profile-pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6vw;
+  border-bottom: 1px solid gray;
+  a {
+    color: $font-prof;
+    display: flex;
+    align-items: center;
+    .profile-image {
+      display: block;
+      background-color: lightgray;
+      border-radius: 2px;
+      height: 3vw;
+      width: 3vw;
+      margin-right: 10px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+    span {
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
+  }
+}
+
+.followers-followings {
+  display: flex;
+  height: 4.65vw;
+  .follow-style {
+    flex-basis: 50%;
+    height: 100%;
+    border-bottom: 1px solid gray;
+    color: $font-prof;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      margin: 0;
+      font-size: 1em;
+    }
+    h5 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 1.27em;
+    }
+  }
+  .followers {
+    border-left: 1px solid gray;
+  }
+}
+
+.profile-links {
+  .profile-link {
+    height: 3.72vw;
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: $font-prof;
+      span, i {
+        margin-left: 20px;
+      }
+      &:hover {
+        text-decoration: none;
+        background-color: $logo-color;
+        color: rgb(255, 255, 255);
+        transition: ease;
+        transition-duration: 0.7s;
+        .profile-svg {
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+}
+
+.profile-svg {
+  color: $font-prof;
+  width: 1.3vw;
+}
+
+/* main options */
+
+.main-options {
+  height: 4.65vw;
+  width: 100%;
+  margin: 0;
+  border-bottom: solid 1px lightgray;
+  background-color: $background-color;
+  z-index: 1;
+  .options {
+    a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      text-transform: uppercase;
+      color: $font-prof;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+        border-bottom: 5px solid $logo-color;
+        color: #2A3A4A;
+        transition: ease;
+        transition-duration: 0.3s;
+      }
+      span {
+        margin: 0 20px;
+      }
+    }
+  }
+}
+
+.dis-none-options {
+  .options-followers {
+    display: none;
+  }
+  .options-following {
+    display: none;
+  }
+}
+
+/* opinion */
+
+.opinion {
+  padding: 20px;
+  input[type="submit"] {
+    display: none;
+  }
+  label {
+    color: $font-prof;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+  }
+  .form-control {
+    color: $undernav-fontcolor;
+    font-size: 0.9em;
+  }
+}
+
+/* who to follow */
+
+.who-to-follow {
+  grid-area: whotofollow;
+  border-left: solid 1px lightgrey;
+  position: sticky;
+  top: 6vw;
+  height: fit-content;
+}
+
+.wtf-and-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.65vw;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: $font-prof;
+  border-bottom: 1px solid lightgray;
+  margin: 0 10%;
+  a {
+    color: $font-prof;
+  }
+  svg {
+    width: 18px;
+  }
+}
+
+.users-wtf {
+  border-bottom: solid 1px lightgrey;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    height: 13.95vw;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    li {
+      display: flex;
+      margin-left: 10%;
+      a { 
+        color: $undernav-fontcolor;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+      .text {
+        display: flex;
+        margin-left: 10px;
+        flex-flow: column;
+        span {
+          color: $undernav-fontcolor;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+  img {
+    width: 40px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 50%;
+  }
+}
+
+.users-wtf-links {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 0.85em;
+  span {
+    vertical-align: text-bottom;
+    color: $twitter-blue;
+  }
+  a {
+    color: $twitter-blue;
+  }
+}
+
+.trending-mentions {
+  display: flex;
+  flex-flow: column;
+  color: $font-prof;
+  font-size: 0.9em;
+  font-weight: bold;
+  span {
+    margin-left: 10%;
+    margin-top: 15px;
+  }
+}
+
+/* JLTs */
+
+.posts-container {
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  section:last-of-type {
+    margin-bottom: 25px;
+  }
+}
+
+.jlt-container {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  margin-top: 25px;
+  color: gray;
+  p, span, h6 {
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    width: 3.8vw;
+    height: 3.8vw;
+    background-color: lightgray;
+    border-radius: 2px;
+  }
+  .jlt-text {
+    display: flex;
+    height: 3.8vw;
+    flex-grow: 1;
+    flex-flow: column;
+    margin-left: 10px;
+    h6 {
+      font-size: 0.92em;
+      a {
+        color: $undernav-fontcolor;
+        font-weight: bold;
+        font-size: 0.92em;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    span {
+      font-size: 0.92em;
+      line-height: 1.2;
+    }
+    .jlt-name {
+      display: flex;
+      justify-content: space-between;
+    }
+    p {
+      font-size: 0.9em;
+      margin-right: 30px;
+      a {
+        color: $twitter-blue;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+/* Pagination */
+
+div[class="pagination"] {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  .pagination {
+    border: 1.5px solid $twitter-blue;
+    border-radius: 10px;
+  }
+  li {
+    background-color: #fff;
+    margin: 10px 0;
+    border-right: 0.5px solid $twitter-blue;
+    line-height: 1;
+    a {
+      width: 100%;
+      height: 100%;
+      padding: 10px 5px;
+      color: $twitter-blue;
+      font-weight: bold;
+      line-height: 1;
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+        background-color: $logo-color;
+        transition: ease;
+        transition-duration: 0.5s;
+      }
+    }
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      a {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+    &:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-right: none;
+      a {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}

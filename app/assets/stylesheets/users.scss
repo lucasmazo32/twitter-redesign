@@ -1,3 +1,136 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-prof: #ADB8C5;
+$logo-color: #29B55F;
+$background-color: #F5F6F8;
+$undernav-fontcolor: #2A3A4A;
+$twitter-blue: #4A9AD8;
+$login-color: #29B55f;
+
+/* cover image container */
+
+.cover-image-container {
+  height: 20vw;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Who to profile */
+
+.profile-info {
+  height: 20vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 7.35vw;
+    width: 7.35vw;
+  }
+}
+
+.profile-name {
+  text-transform: uppercase;
+  color: $undernav-fontcolor;
+  font-weight: bold;
+}
+
+.profile-info-text {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.profile-username {
+  color: grey;
+}
+
+.pic-and-follow {
+  display: flex;
+  align-items: center;
+  margin-top: 2.1vw;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  i {
+    display: flex;
+    width: 20px;
+    height: 20px;
+  }
+  a {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid grey;
+    border-radius: 50%;
+    color: grey;
+  }
+}
+
+.no-follow:hover {
+  background-color: red;
+  color: red;
+  border-color: white;
+  transition: ease;
+  transition-duration: 0.5s;
+}
+
+.yes-follow:hover {
+  background-color: $logo-color;
+  color: white;
+  border-color: white;
+  transition: ease;
+  transition-duration: 0.5s;
+}
+
+.profile-user-info {
+  display: flex;
+  width: 100%;
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  height: 5.45vw;
+  .user-info {
+    flex-basis: 33%;
+    text-align: center;
+    border-right: 1px lightgray solid;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    h5 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+    p {
+      font-size: 0.9em;
+      margin: 0;
+      color: gray;
+    }
+  }
+  .user-info-jlts {
+    flex-basis: 34%;
+  }
+}
+
+/* user's info */
+
+.posts-container-user {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .jlt-container {
+    margin: 0 50px;
+    margin-top: 25px;
+  }
+  section:nth-last-of-type(2){
+    margin-bottom: 25px;
+  }
+  .jlt-text {
+    justify-content: center;
+  }
+}

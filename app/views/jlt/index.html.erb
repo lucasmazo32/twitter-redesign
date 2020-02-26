@@ -4,6 +4,9 @@
   <%= render 'layouts/who_to_follow' %>
   <div class="main-body dis-none-options">
     <%= render 'layouts/main_options' %>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
     <%= render 'shared/new_opinion' %>
       <div class="posts-container">
         <% @jlt.each do |opinion| %>

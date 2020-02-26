@@ -17,12 +17,12 @@ class User < ApplicationRecord
   validates :name, presence: true, allow_blank: nil, length: { in: 3..25 }
 
   def follows?(user)
-    self.follows.find_by(followed: user)
+    follows.find_by(followed: user)
   end
 
   def num_following
     return 0 unless follows.any?
-    
+
     follows.count
   end
 
@@ -39,39 +39,49 @@ class User < ApplicationRecord
   end
 
   def network_tweets
-    id_array = self.follows.map(&:followed_id) << id
+    id_array = follows.map(&:followed_id) << id
     Opinion.where(author_id: id_array)
   end
 
   def random_wtf
-    id_array = self.follows.map(&:followed_id) << id
+    id_array = follows.map(&:followed_id) << id
     User.where.not(id: id_array).sample(3)
+  end
+
+  def followers
+    id_array = followds.map(&:follower_id)
+    User.where(id: id_array)
+  end
+
+  def following
+    id_array = follows.map(&:followed_id)
+    User.where(id: id_array)
   end
 
   private
 
   def default_photo
-    if photo.empty?
-      self.photo = Faker::Avatar.image
-      self.save
-    end
+    return unless photo.empty?
+
+    self.photo = Faker::Avatar.image
+    save
   end
 
   def default_cover
-    if coverimage.empty? 
-      self.coverimage = [
-        "https://farm8.staticflickr.com/7137/27443920573_f21dfc3205_b.jpg",
-        "https://farm8.staticflickr.com/7291/27443775693_5360498bf0_b.jpg",
-        "https://farm6.staticflickr.com/5803/22660804556_b640819f4f_b.jpg",
-        "https://farm2.staticflickr.com/1539/24630607809_dac5522568_b.jpg",
-        "https://farm8.staticflickr.com/7432/27439189814_3565467d5f_b.jpg",
-        "https://live.staticflickr.com/3371/4576593240_f8e3fa7a72_b.jpg",
-        "https://farm5.staticflickr.com/4730/24280020847_4756aa84f4_b.jpg",
-        "https://farm8.staticflickr.com/7266/27443875023_f509d29178_b.jpg",
-        "https://farm8.staticflickr.com/7899/46827561401_50275c9976_b.jpg"
-      ].sample
-      self.save
-    end
+    return unless coverimage.empty?
+
+    self.coverimage = [
+      'https://farm8.staticflickr.com/7137/27443920573_f21dfc3205_b.jpg',
+      'https://farm8.staticflickr.com/7291/27443775693_5360498bf0_b.jpg',
+      'https://farm6.staticflickr.com/5803/22660804556_b640819f4f_b.jpg',
+      'https://farm2.staticflickr.com/1539/24630607809_dac5522568_b.jpg',
+      'https://farm8.staticflickr.com/7432/27439189814_3565467d5f_b.jpg',
+      'https://live.staticflickr.com/3371/4576593240_f8e3fa7a72_b.jpg',
+      'https://farm5.staticflickr.com/4730/24280020847_4756aa84f4_b.jpg',
+      'https://farm8.staticflickr.com/7266/27443875023_f509d29178_b.jpg',
+      'https://farm8.staticflickr.com/7899/46827561401_50275c9976_b.jpg'
+    ].sample
+    save
   end
 
   def good_username

@@ -1,13 +1,26 @@
 <div class="grid-sis">
   <%= render 'layouts/nav' %>
   <%= render 'layouts/profile_menu' %>
-  <%= render 'layouts/who_to_follow' %>
+  <%= render 'users/who_to_profile' %>
   <div class="main-body">
-    <%= render 'layouts/main_options' %>
-    <% @users.each do |user| %>
-      <h5>
-      <%= link_to  user.name, me_path(user) %>
-      </h5>
+    <div class="cover-image-container" style="background-image: url(<%= @user.coverimage %>);"></div>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
+    <%= render 'layouts/main_options' %>
+    <div class="posts-container posts-container-user">
+      <% @users.each do |user| %>
+        <section class="jlt-container">
+          <%= profile_pic user %>
+          <div class="jlt-text">
+            <div class="jlt-name">
+              <h6><%= link_to user.name, me_path(user) %></h6>
+            </div>
+            <p><%= "#{user.num_followers} followers and #{user.num_jlts} JLT's" %></p>
+          </div>
+        </section>
+      <% end %>
+      <%= will_paginate %>
+    </div>
   </div>
 </div>

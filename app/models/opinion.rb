@@ -7,29 +7,30 @@ class Opinion < ApplicationRecord
 
   def link_jlt
     scanned = text.scan(/jlt_\w+\s/)
-    return self.text.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe if scanned.empty?
-    scanned = scanned.map{ |x| x[4...x.length-1] }
+    return text.gsub(URI::DEFAULT_PARSER.make_regexp, '<a href="\0">\0</a>').html_safe if scanned.empty?
+
+    scanned = scanned.map { |x| x[4...x.length - 1] }
     scanned.each do |username|
-      if user = User.find_by(username: username)
+      if User.find_by(username: username)
         text = "<a href='/me/#{username}'>jlt_#{username}</a>"
         self.text = self.text.gsub("jlt_#{username}", text)
       end
     end
-    self.save
-    self.text.gsub(URI.regexp, '<a href="\0">\0</a>').html_safe
+    save
+    self.text.gsub(URI::DEFAULT_PARSER.make_regexp, '<a href="\0">\0</a>').html_safe
   end
 
   def created_ago
     time = Time.now - created_at
     case time
     when 0..60
-      "1 minute"
+      '1 minute'
     when 120..3600
-      "#{(time/60).to_i} minutes"
-    when 3600..86400
-      "#{(time/3600).to_i}H"
+      "#{(time / 60).to_i} minutes"
+    when 3600..86_400
+      "#{(time / 3600).to_i}H"
     else
-      created_at.strftime("%-d %^b")
+      created_at.strftime('%-d %^b')
     end
   end
 

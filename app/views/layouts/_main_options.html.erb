@@ -1,17 +1,19 @@
 <div class="row main-options">
   <div class="options options-tweets">
-    <%= link_to 'javascript:void(0);' do %>
+    <%= link_to '/' do %>
       <span>JLT's</span>
     <% end %>
   </div>
-  <div class="options options-following">
-    <%= link_to 'javascript:void(0);' do %>
-      <span>Following</span>
-    <% end %>
-  </div>
-  <div class="options options-followers">
-    <%= link_to 'javascript:void(0);' do %>
-      <span>Followers</span>
-    <% end %>
-  </div>
+  <% unless @user.nil? %>
+    <div class="options options-following">
+      <%= link_to users_path(params: { follow: 'following', user: @user.username }) do %>
+        <span>Following</span>
+      <% end %>
+    </div>
+    <div class="options options-followers">
+      <%= link_to users_path(params: { follow: 'followers', user: @user.username }) do %>
+        <span>Followers</span>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -4,9 +4,7 @@ module SessionsHelper
   end
 
   def current_user
-    if session[:user_id]
-      @current_user ||= User.find(session[:user_id])
-    end
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def logged?
@@ -28,7 +26,7 @@ module SessionsHelper
 
   def current_view
     if current_user
-      link_to "#{@current_user.name}", me_path(@current_user), class: 'btn btn-secundary'
+      link_to @current_user.name.to_s, me_path(@current_user), class: 'btn btn-secundary'
     else
       link_to 'Sign in', login_path, class: 'btn btn-secundary'
     end
