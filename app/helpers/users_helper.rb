@@ -51,4 +51,14 @@ module UsersHelper
   def search_param(param)
     User.where('name LIKE ?', "%#{param}%").or(User.where('username LIKE ?', "%#{param}%"))
   end
+
+  def popular
+    count_hash = Following.select('followed_id').group('followed_id').count
+    count_hash = count_hash.max_by(4) { |k,v| v }
+    count_hash.map{ |x| x[0] }
+  end
+
+  def find_friends(user)
+    id_array = user.follows.map(&:followed_id) << user.id
+  end
 end

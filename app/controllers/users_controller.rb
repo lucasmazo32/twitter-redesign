@@ -16,10 +16,15 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:user])
     return @users = search_param(params[:q]).paginate(page: params[:page]) unless params[:q].nil?
 
-    if params[:follow] == 'followers'
+    case params[:follow]
+    when 'followers'
       @users = @user.followers.paginate(page: params[:page])
-    elsif params[:follow] == 'following'
+    when 'following'
       @users = @user.following.paginate(page: params[:page])
+    when 'popular accounts'
+      @users = User.where(id: popular).paginate(page: params[:page])
+    when 'find friends'
+      @users = User.where.not(id: find_friends(current_user)).paginate(page: params[:page])
     end
   end
 
