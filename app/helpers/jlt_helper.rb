@@ -14,4 +14,16 @@ module JltHelper
       render 'users/who_foreign'
     end
   end
+
+  def main_options_JLT(user)
+    if user
+      link_to me_path(@user) do
+        tag.span "JLT's"
+      end
+    else
+      link_to '/' do
+        tag.span "JLT's"
+      end
+    end
+  end
 end
