@@ -63,11 +63,10 @@ Whirly.start do
   120.times do
     follower_id = rand(1..30)
     followed_id = rand(1..30)
-    cre_at = rand(1..360)
     if followed_id == follower_id
       followed_id = rand(1..30) while followed_id == follower_id
     end
     next if Following.where(follower_id: follower_id).find_by(followed_id: followed_id)
-    Following.create!(follower_id: follower_id, followed_id: followed_id, created_at: cre_at.minutes.ago)
+    Following.create!(follower_id: follower_id, followed_id: followed_id)
   end
 end

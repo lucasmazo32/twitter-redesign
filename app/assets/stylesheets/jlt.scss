@@ -469,19 +469,18 @@ div[class="pagination"] {
   width: 100%;
   justify-content: center;
   .pagination {
-    border: 1.5px solid $twitter-blue;
+    border: 1.5px solid $logo-color;
     border-radius: 10px;
   }
   li {
-    background-color: #fff;
     margin: 10px 0;
-    border-right: 0.5px solid $twitter-blue;
+    border-right: 0.5px solid $logo-color;
     line-height: 1;
     a {
       width: 100%;
       height: 100%;
       padding: 10px 5px;
-      color: $twitter-blue;
+      color: $logo-color;
       font-weight: bold;
       line-height: 1;
       &:hover {
