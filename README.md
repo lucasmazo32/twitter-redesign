@@ -1,6 +1,23 @@
-# Scaffold for social media app with Ruby on Rails
+# Twitter redesign: Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+This solo project is part of the Microverse curriculum in which I had to build a Twitter Redesign following the design made by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). I could change the logo and name, but the overall design should be there.
+
+The project is fully functional and is open for new features that can be easily added. 
+
+# Features
+
+As a non-logged user, you can Log in, or create a new account.
+
+The fields specify which ones are optional. In case you decide not to fill those fields, the system is going to assign one random profile picture and cover image to you. If you create the account, is going to redirect you to your profile page.
+
+![alt text](http://url/to/img.png)
+
+In the login page, you can log in with your user, if you have one; create a new user, or ask for the list of seeded users to log in as one of them. Once you log in, is going to take you to the Just Like That's homepage, in which you can see the "tweets" of everyone that you follow, and the ones that you've made.
+
+The 'Who to follow' section shows you three users that you are not following so you can check their profile, and in case you like it, follow them. The plus sign to the side of the person's photo is the follow button.
+
+Every link in the application is clickable and fully functional, so don't be afraid of exploring more.
+
 
 ## Built With
 
@@ -27,18 +44,24 @@ Postgres: >=9.5
 Instal gems with:
 
 ```
-bundle install
+   bundle install
 ```
 
+In case it is required, run `bundle update`.
 
-Setup database with:
+
+Setup development and test database with:
 
 ```
+   rails db:drop
    rails db:create
    rails db:migrate
+   rails db:migrate RAILS_ENV=test
+   rails db:seed
+   rails db:seed RAILS_ENV=test
 ```
 
-
+> Following the last steps are very important for setting up the database for the development environment as well as the test environment.
 
 ### Usage
 
@@ -64,8 +87,8 @@ TBA
 
 Lucas Mazo:
 
-[LinkedIn](https://www.linkedin.com/in/lucas-mazo-meza-55a65b159/)
-[Github](https://github.com/lucasmazo32)
+[LinkedIn](https://www.linkedin.com/in/lucas-mazo-meza-55a65b159/) | 
+[Github](https://github.com/lucasmazo32) | 
 [Twitter](https://twitter.com/lucasmazo32)
 
 ## 🤝 Contributing
@@ -80,9 +103,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-https://fontawesome.com/
+For the logo creation, I used the application [LogoMakr](https://logomakr.com/), which has cool logos and is easy to use. 
 
-logomakr.com
+For the SVG's (like the house, pencil and others) I used [Font Awesome](https://fontawesome.com/).
 
 ## 📝 License
 
