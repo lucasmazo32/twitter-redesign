@@ -1,12 +1,159 @@
 @import "bootstrap";
 
+$font-prof: #ADB8C5;
+$logo-color: #29B55F;
+$background-color: #F5F6F8;
+$undernav-fontcolor: #2A3A4A;
+$twitter-blue: #4A9AD8;
+$login-color: #29B55f;
+
+/* General */
+
+body {
+  background-color: $background-color;
+  font-size: 1.1vw;
+}
+
+:root {
+  --font-family-sans-serif: 'Noto Serif', Arial, Helvetica, sans-serif;
+  --font-family-monospace: 'Noto Serif', Arial, Helvetica, sans-serif;
+}
+
+.flex_grow {
+  flex-grow: 1;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.opinion {
+  background: #F5F6F8;
+  z-index: 2;
+}
+
+.form-control {
+  resize: none;
+}
+
+#error_explanation {
+  margin: 5px -40px;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+  }
+}
+
+/* Grid system */
+
+.main-body {
+  grid-area: mainbody;
+  overflow: visible;
+}
+
+.container-fluid {
+  .grid-sis {
+    display: grid;
+    grid-template-columns: 16.66vw 1fr 22.5vw;
+    grid-template-rows: 6vw 1fr;
+    grid-template-areas: 
+    "profilearea navbar navbar"
+    "profilearea mainbody whotofollow"
+    ;
+  }
+}
+
+/* Italic fonts in forms */
+
 .form-op {
-  margin-left: 1rem;
+  margin-left: 1em;
   font-style: italic;
   font-size: 0.8em;
 }
 
 label {
-  margin-bottom: 0.1rem;
-  margin-top: 0.4rem;
+  margin-bottom: 0.1em;
+  margin-top: 0.4em;
+}
+
+@media only screen and (max-width: 1400px) {
+  body {
+    font-size: 14px;
+  }
+  .jlt-container .jlt-text p {
+    font-size: 1.1vw !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .followers-followings {
+    display: none !important;
+  }
+  .profile-pic a {
+    flex-flow: column;
+  }
+  .container-fluid {
+    .grid-sis {
+      grid-template-columns: 13vw 1fr 22vw;
+    }
+  }
+  .jlt-container .jlt-text p {
+    font-size: 12px !important;
+  }
+  .jlt-container img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .jlt-container .jlt-text {
+    height: auto !important;
+  }
+  .profile-pic a .profile-image {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  .profile-pic {
+    height: 80px !important;
+  }
+  .users-wtf img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .users-wtf ul {
+    height: 160px !important;
+  }
+  .profile-links .profile-link a {
+    span {
+      display: none;
+    }
+    .profile-svg {
+      height: 20px;
+      width: 20px;
+    }
+    i {
+      margin: 0 auto;
+      margin-left: auto !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container-fluid {
+    .grid-sis {
+      display: grid;
+      grid-template-columns: 77.5vw 22.5vw;
+      grid-template-rows: 6vw 1fr;
+      grid-template-areas: 
+      "navbar navbar"
+      "mainbody whotofollow"
+      ;
+    }
+  }
+  .profile-menu {
+    display: none !important;
+  }
 }

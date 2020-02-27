@@ -1,8 +1,8 @@
 class JltController < ApplicationController
   before_action :not_logged
-  
+
   def index
-    @opinions = Opinion.includes(:author).order(created_at: :desc)
+    @jlt = current_user.network_tweets.includes(:author).paginate(page: params[:page])
   end
 
   def show
@@ -23,11 +23,10 @@ class JltController < ApplicationController
     opinion = current_user.opinions.build(opinion_params)
     if opinion.save
       flash[:success] = 'Your JLT was created successfully!'
-      redirect_back fallback_location: '/'
     else
       flash[:danger] = 'The JLT could not be created (too long)'
-      redirect_back fallback_location: '/'
     end
+    redirect_back fallback_location: '/'
   end
 
   def followers

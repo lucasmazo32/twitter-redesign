@@ -4,18 +4,15 @@
     <title>Just like that</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="container-fluid">
-      <%= render 'layouts/nav' %>
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
       <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
+      <% debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

@@ -1,0 +1,23 @@
+<div class="who-to-follow">
+  <div class="wtf-and-button">
+    <span>Who to follow</span>
+  </div>
+  <div class="users-wtf">
+    <ul>
+      <% current_user.random_wtf.each do |random_user| %>
+        <li>
+          <%= profile_pic random_user %>
+          <div class="text">
+            <%= link_to  "#{random_user.name}", me_path(random_user) %>
+            <span><%= "#{random_user.num_followers} " %> Follower(s)</span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="users-wtf-links">
+      <%= link_to  'Popular accounts', users_path(params: { follow: 'popular accounts', user: current_user.username }) %>
+      <span>.</span>
+      <%= link_to  'Find friends', users_path(params: { follow: 'find friends', user: current_user.username }) %>
+    </div>
+  </div>
+</div>

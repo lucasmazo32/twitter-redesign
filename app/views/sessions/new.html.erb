@@ -1,12 +1,21 @@
-<div class="row">
-  <div class="col"></div>
-  <div class="col-4">
+<div class="top-row row"></div>
+<div class="row forms_row">
+  <div class="col side_col"></div>
+  <div class="col-3 login_col label_none">
+  <%= image_tag 'logo.png', tag: 'justlikethatlogo', class: 'new_logo' %>
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <% end %>
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
+      <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
 
-      <%= f.submit 'Sign in', class: 'btn btn-primary' %> Not a user?, <%= link_to  "Sign up", new_user_path %>
+      <%= f.submit 'Sign in', class: 'btn btn-primary' %>
     <% end %>
+  <span>
+    Not a user?&nbsp;&nbsp;<%= link_to  "Sign up", new_user_path, class: 'btn btn-secundary' %>
+  </span>
   </div>
-  <div class="col"></div>
+  <div class="col side_col"></div>
 </div>
+<div class="row bottom-row"></div>
