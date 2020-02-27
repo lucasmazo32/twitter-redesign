@@ -10,11 +10,23 @@ As a non-logged user, you can Log in, or create a new account.
 
 The fields specify which ones are optional. In case you decide not to fill those fields, the system is going to assign one random profile picture and cover image to you. If you create the account, is going to redirect you to your profile page.
 
-![alt text](http://url/to/img.png)
+![New user](https://github.com/lucasmazo32/twitter-redesign/blob/feature/final_touches/app/assets/images/screenshots/new_user.png?raw=true)
 
-In the login page, you can log in with your user, if you have one; create a new user, or ask for the list of seeded users to log in as one of them. Once you log in, is going to take you to the Just Like That's homepage, in which you can see the "tweets" of everyone that you follow, and the ones that you've made.
+![Profile](https://github.com/lucasmazo32/twitter-redesign/blob/feature/final_touches/app/assets/images/screenshots/profile.jpg?raw=true)
 
-The 'Who to follow' section shows you three users that you are not following so you can check their profile, and in case you like it, follow them. The plus sign to the side of the person's photo is the follow button.
+In the login page, you can log in with your user, if you have one; create a new user, or ask for the list of seeded users to log in as one of them. 
+
+![Login page](https://github.com/lucasmazo32/twitter-redesign/blob/feature/final_touches/app/assets/images/screenshots/login.png?raw=true)
+
+![Sample users](https://github.com/lucasmazo32/twitter-redesign/blob/feature/final_touches/app/assets/images/screenshots/sample_users.png?raw=true)
+
+Once you log in, is going to take you to the Just Like That's homepage, in which you can see the "tweets" of everyone that you follow, and the ones that you've made.
+
+![root](https://github.com/lucasmazo32/twitter-redesign/blob/feature/final_touches/app/assets/images/screenshots/root.jpg?raw=true)
+
+The 'Who to follow' section shows you three users that you are not following so you can check their profile, and in case you like it, follow them. The plus sign to the side of the person's photo is the follow button. Additionally, if you start a tweet with jlt_`username` you are going to tag that person, and in your comment, you can see the hyperlink to that person's user page. If you go to the user's profile, you can write a tweet, and it already has the jlt_`username` by default.
+
+![other page](https://github.com/lucasmazo32/twitter-redesign/blob/feature/final_touches/app/assets/images/screenshots/other_profile.jpg?raw=true)
 
 Every link in the application is clickable and fully functional, so don't be afraid of exploring more.
 
@@ -27,7 +39,6 @@ Every link in the application is clickable and fully functional, so don't be afr
 ## Live Demo
 
 TBA
-
 
 ## Getting Started
 
