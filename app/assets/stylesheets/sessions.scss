@@ -15,7 +15,8 @@ $login-color: #29B55f;
   width: 300px;
   max-width: 80%;
   display: block;
-  margin: 30px auto;
+  margin: 0 auto;
+  margin-bottom: 30px;
   filter: saturate(1.54) brightness(0.85542) hue-rotate(-4deg);
 }
 
@@ -26,6 +27,8 @@ $login-color: #29B55f;
 }
 
 .new_user {
+  display: flex;
+  align-items: center;
   margin: 0 50px;
   min-width: 400px;
   form {
@@ -69,6 +72,8 @@ $login-color: #29B55f;
 /* login */
 
 .login_col {
+  display: flex;
+  align-items: center;
   margin: 0 50px;
   min-width: 400px;
   form {
@@ -146,4 +151,11 @@ $login-color: #29B55f;
   span {
     flex-basis: 50%;
   }
+}
+
+/* login container */
+
+.login-container {
+  width: 100%;
+  height: fit-content;
 }

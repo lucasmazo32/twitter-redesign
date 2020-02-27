@@ -2,43 +2,45 @@
 <div class="row forms_row">
   <div class="col side_col"></div>
   <div class="col-3 login_col label_none">
-    <%= image_tag 'logo.png', tag: 'justlikethatlogo', class: 'new_logo' %>
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
-      <%= form_for(:session, url: login_path) do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
-
-        <%= f.submit 'Sign in', class: 'btn btn-primary' %>
+    <div class="login-container">
+      <%= image_tag 'logo.png', tag: 'justlikethatlogo', class: 'new_logo' %>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
-    <span>
-      Not a user?&nbsp;&nbsp;<%= link_to  "Sign up", new_user_path, class: 'btn btn-secundary' %>
-    </span>
-    <!-- Button trigger modal -->
-    <div class="modal-btn">
-      <button type="button" class="btn btn-secundary" data-toggle="modal" data-target="#exampleModal">
-        Sample usernames
-      </button>
-    </div>
+        <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Sample usernames</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <% @users.each do |user| %>
-              <span><%= user.username %></span>
-            <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit 'Sign in', class: 'btn btn-primary' %>
+        <% end %>
+      <span>
+        Not a user?&nbsp;&nbsp;<%= link_to  "Sign up", new_user_path, class: 'btn btn-secundary' %>
+      </span>
+      <!-- Button trigger modal -->
+      <div class="modal-btn">
+        <button type="button" class="btn btn-secundary" data-toggle="modal" data-target="#exampleModal">
+          Sample usernames
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sample usernames</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <% @users.each do |user| %>
+                <span><%= user.username %></span>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>

@@ -2,10 +2,12 @@
 <div class="row forms_row">
   <div class="col side_col"></div>
   <div class="col-3 new_user label_none">
-    <%= link_to login_path do %>
-      <%= image_tag 'logo.png', tag: 'justlikethatlogo', class: 'new_logo' %>
-    <% end %>
-    <%= render 'users/users_forms' %>
+    <div class="login-container">
+      <%= link_to login_path do %>
+        <%= image_tag 'logo.png', tag: 'justlikethatlogo', class: 'new_logo' %>
+      <% end %>
+      <%= render 'users/users_forms' %>
+    </div>
   </div>
   <div class="col side_col"></div>
 </div>
