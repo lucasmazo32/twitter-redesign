@@ -54,11 +54,11 @@ module UsersHelper
 
   def popular
     count_hash = Following.select('followed_id').group('followed_id').count
-    count_hash = count_hash.max_by(4) { |k,v| v }
-    count_hash.map{ |x| x[0] }
+    count_hash = count_hash.max_by(4) { |_k, v| v }
+    count_hash.map { |x| x[0] }
   end
 
   def find_friends(user)
-    id_array = user.follows.map(&:followed_id) << user.id
+    user.follows.map(&:followed_id) << user.id
   end
 end
