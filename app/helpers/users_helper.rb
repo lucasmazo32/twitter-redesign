@@ -45,11 +45,7 @@ module UsersHelper
 
   def followers3(user)
     id_array = user.followds.map(&:follower_id)
-    User.where(id: id_array).sample(3)
-  end
-
-  def search_param(param)
-    User.where('name LIKE ?', "%#{param}%").or(User.where('username LIKE ?', "%#{param}%"))
+    User.where(id: id_array).includes([:followds]).sample(3)
   end
 
   def popular

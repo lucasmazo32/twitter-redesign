@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   validate :good_username
 
-  has_many :opinions, foreign_key: 'author', class_name: 'Opinion', dependent: :destroy
-  has_many :follows, foreign_key: 'follower', class_name: 'Following', dependent: :destroy
-  has_many :followds, foreign_key: 'followed', class_name: 'Following', dependent: :destroy
+  has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion', dependent: :destroy
+  has_many :follows, foreign_key: 'follower_id', class_name: 'Following', dependent: :destroy
+  has_many :followds, foreign_key: 'followed_id', class_name: 'Following', dependent: :destroy
 
   validates :username, presence: true, allow_blank: false,
                        uniqueness: { case_sensitive: false },
@@ -45,7 +45,7 @@ class User < ApplicationRecord
 
   def random_wtf
     id_array = follows.map(&:followed_id) << id
-    User.where.not(id: id_array).sample(3)
+    User.where.not(id: id_array).includes([:followds]).sample(3)
   end
 
   def followers
@@ -56,6 +56,10 @@ class User < ApplicationRecord
   def following
     id_array = follows.map(&:followed_id)
     User.where(id: id_array)
+  end
+
+  def search_param(param)
+    User.where('name LIKE ?', "%#{param}%").or(User.where('username LIKE ?', "%#{param}%"))
   end
 
   private
