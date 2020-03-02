@@ -15,18 +15,18 @@ class UsersController < ApplicationController
   def index
     @user = User.find_by(username: params[:user])
     unless params[:q].nil?
-      return @users = User.search_param(params[:q]).includes([:opinions]).paginate(page: params[:page])
+      return @users = @user.search_param(params[:q]).includes([:opinions]).paginate(page: params[:page])
     end
 
     case params[:follow]
     when 'followers'
       @users = @user.followers.includes([:opinions]).paginate(page: params[:page])
     when 'following'
-      @users = @user.following.includes([:opinions]).paginate(page: params[:page])
+      @users = @user.following.includes([:opinions]).includes([:followds]).paginate(page: params[:page])
     when 'popular accounts'
-      @users = User.where(id: popular).includes([:opinions]).paginate(page: params[:page])
+      @users = @user.popular.includes([:opinions]).paginate(page: params[:page])
     when 'find friends'
-      @users = User.where.not(id: find_friends(current_user)).includes([:opinions]).paginate(page: params[:page])
+      @users = current_user.find_friends.includes([:opinions]).paginate(page: params[:page])
     end
   end
 

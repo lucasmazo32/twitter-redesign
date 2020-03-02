@@ -38,23 +38,4 @@ module UsersHelper
   def profile_pic(user)
     image_tag(user.photo, alt: user.name, class: 'profile-image')
   end
-
-  def random_to_follow(user)
-    user.random_wtf
-  end
-
-  def followers3(user)
-    id_array = user.followds.map(&:follower_id)
-    User.where(id: id_array).includes([:followds]).sample(3)
-  end
-
-  def popular
-    count_hash = Following.select('followed_id').group('followed_id').count
-    count_hash = count_hash.max_by(4) { |_k, v| v }
-    count_hash.map { |x| x[0] }
-  end
-
-  def find_friends(user)
-    user.follows.map(&:followed_id) << user.id
-  end
 end

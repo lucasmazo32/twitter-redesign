@@ -59,7 +59,25 @@ class User < ApplicationRecord
   end
 
   def search_param(param)
-    User.where('name LIKE ?', "%#{param}%").or(User.where('username LIKE ?', "%#{param}%"))
+    users = User.where('name LIKE ?', "%#{param}%").or(User.where('username LIKE ?', "%#{param}%"))
+    users.includes([:followds])
+  end
+
+  def find_friends
+    id_arr = self.follows.map(&:followed_id) << id
+    User.where.not(id: id_arr)
+  end
+
+  def popular
+    count_hash = Following.select('followed_id').group('followed_id').count
+    count_hash = count_hash.max_by(4) { |_k, v| v }
+    id_arr = count_hash.map { |x| x[0] }
+    User.where(id: id_arr).includes([:followds])
+  end
+
+  def followers3
+    id_array = followds.map(&:follower_id)
+    User.where(id: id_array).includes([:followds]).sample(3)
   end
 
   private
