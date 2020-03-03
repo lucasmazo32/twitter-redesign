@@ -1,14 +1,14 @@
 module UsersHelper
   def delete_user?(user)
-    link_to 'Delete', me_path(user), method: :delete, data: { confirm: 'Really delete this user?' },
-                                     class: 'btn btn-secundary'
+    link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Really delete this user?' },
+                                       class: 'btn btn-secundary'
   end
 
   def follow_or_stop(user)
     return if user == current_user
 
     if current_user.follows?(user)
-      link_to me_path(@user, params: { follow: 'unfollow' }), method: :post, class: 'no-follow' do
+      link_to user_path(@user, params: { follow: 'unfollow' }), method: :post, class: 'no-follow' do
         tag.i class: 'fas fa-plus' do
           tag.svg 'aria-hidden'.to_sym => true, focusable: false, 'data-prefix'.to_sym => 'fas',
                   'data-icon'.to_sym => 'check', class: 'svg-inline--fa fa-check fa-w-16', role: 'img',
@@ -21,7 +21,7 @@ module UsersHelper
         end
       end
     else
-      link_to me_path(@user, params: { follow: 'follow' }), method: :post, class: 'yes-follow' do
+      link_to user_path(@user, params: { follow: 'follow' }), method: :post, class: 'yes-follow' do
         tag.i class: 'fas fa-check' do
           tag.svg 'aria-hidden'.to_sym => true, focusable: false, 'data-prefix'.to_sym => 'fas',
                   'data-icon'.to_sym => 'plus', class: 'svg-inline--fa fa-plus fa-w-14', role: 'img',
@@ -37,28 +37,5 @@ module UsersHelper
 
   def profile_pic(user)
     image_tag(user.photo, alt: user.name, class: 'profile-image')
-  end
-
-  def random_to_follow(user)
-    user.random_wtf
-  end
-
-  def followers3(user)
-    id_array = user.followds.map(&:follower_id)
-    User.where(id: id_array).sample(3)
-  end
-
-  def search_param(param)
-    User.where('name LIKE ?', "%#{param}%").or(User.where('username LIKE ?', "%#{param}%"))
-  end
-
-  def popular
-    count_hash = Following.select('followed_id').group('followed_id').count
-    count_hash = count_hash.max_by(4) { |_k, v| v }
-    count_hash.map { |x| x[0] }
-  end
-
-  def find_friends(user)
-    user.follows.map(&:followed_id) << user.id
   end
 end

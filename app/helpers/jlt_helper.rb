@@ -17,7 +17,7 @@ module JltHelper
 
   def main_options_jlt(user)
     if user
-      link_to me_path(@user) do
+      link_to user_path(@user) do
         tag.span "JLT's"
       end
     else

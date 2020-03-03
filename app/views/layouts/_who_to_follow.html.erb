@@ -8,7 +8,7 @@
         <li>
           <%= profile_pic random_user %>
           <div class="text">
-            <%= link_to  "#{random_user.name}", me_path(random_user) %>
+            <%= link_to  "#{random_user.name}", user_path(random_user) %>
             <span><%= "#{random_user.num_followers} " %> Follower(s)</span>
           </div>
         </li>

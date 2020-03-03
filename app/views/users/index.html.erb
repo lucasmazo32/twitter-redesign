@@ -14,7 +14,7 @@
           <%= profile_pic user %>
           <div class="jlt-text">
             <div class="jlt-name">
-              <h6><%= link_to user.name, me_path(user) %></h6>
+              <h6><%= link_to user.name, user_path(user) %></h6>
             </div>
             <p><%= "#{user.num_followers} followers and #{user.num_jlts} JLT's" %></p>
           </div>

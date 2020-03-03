@@ -3,28 +3,26 @@ class UsersController < ApplicationController
   before_action :not_logged, except: %i[new create]
   before_action :param_check, only: %i[index]
 
-  def me
-    redirect_to me_path(current_user)
-  end
-
   def show
     @user = User.friendly.find(params[:id])
-    @users = @user.opinions.paginate(page: params[:page])
+    @users = @user.opinions.includes([:author]).paginate(page: params[:page])
   end
 
   def index
     @user = User.find_by(username: params[:user])
-    return @users = search_param(params[:q]).paginate(page: params[:page]) unless params[:q].nil?
+    unless params[:q].nil?
+      return @users = @user.search_param(params[:q]).includes([:opinions]).paginate(page: params[:page])
+    end
 
     case params[:follow]
     when 'followers'
-      @users = @user.followers.paginate(page: params[:page])
+      @users = @user.followers.includes([:opinions]).paginate(page: params[:page])
     when 'following'
-      @users = @user.following.paginate(page: params[:page])
+      @users = @user.following.includes([:opinions]).includes([:followds]).paginate(page: params[:page])
     when 'popular accounts'
-      @users = User.where(id: popular).paginate(page: params[:page])
+      @users = @user.popular.includes([:opinions]).paginate(page: params[:page])
     when 'find friends'
-      @users = User.where.not(id: find_friends(current_user)).paginate(page: params[:page])
+      @users = current_user.find_friends.includes([:opinions]).paginate(page: params[:page])
     end
   end
 
@@ -36,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to me_path(@user)
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -50,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'Profile updated'
-      redirect_to me_path(@user)
+      redirect_to user_path(@user)
     else
       render 'edit'
     end
@@ -58,8 +56,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.friendly.find(params[:id])
-    @user.destroy
-    flash[:danger] = 'User deleted'
+    if @user
+      @user.destroy
+      flash[:danger] = 'User deleted'
+    end
+    log_out
     redirect_to login_path
   end
 
