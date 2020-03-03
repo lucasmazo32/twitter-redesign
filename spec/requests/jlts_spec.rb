@@ -64,8 +64,22 @@ RSpec.describe 'Jlts', type: :request do
   end
 
   context 'Search and main options' do
+    def find_user
+      user = nil
+      cont = 1
+      while user.nil?
+        if User.find(cont).num_followers != 0
+          user = User.find(cont) if User.find(cont).num_following != 0
+        end
+        cont = cont + 1
+      end
+      user
+    end
+
+    let(:user) { find_user }
+
     it 'should use the search engine' do
-      user = log_in(1)
+      log_in(user.id)
       get "/users?q=a&user=#{user.username}"
       users = User.where('name LIKE ?', '%a%').or(User.where('username LIKE ?', '%a%'))
       sample_user = users.first(30).sample(1)[0]
@@ -73,14 +87,14 @@ RSpec.describe 'Jlts', type: :request do
     end
 
     it 'should see the following of the user' do
-      user = log_in(1)
+      log_in(user.id)
       get "/users?follow=following&user=#{user.username}"
       sample_user = user.following.first(30).sample(1)[0]
       expect(response.body).to include(sample_user.name.gsub(/'/, '&#39;'))
     end
 
     it 'should show me the followers for the user' do
-      user = log_in(1)
+      log_in(user.id)
       get "/users?follow=followers&user=#{user.username}"
       sample_user = user.followers.first(30).sample(1)[0]
       expect(response.body).to include(sample_user.name.gsub(/'/, '&#39;'))
