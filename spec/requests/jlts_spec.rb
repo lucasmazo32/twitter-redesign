@@ -64,14 +64,13 @@ RSpec.describe 'Jlts', type: :request do
   end
 
   context 'Search and main options' do
-    def find_user
-      user = nil
+    def find_user(user = nil)
       cont = 1
       while user.nil?
         if User.find(cont).num_followers != 0
           user = User.find(cont) if User.find(cont).num_following != 0
         end
-        cont = cont + 1
+        cont += 1
       end
       user
     end
