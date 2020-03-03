@@ -69,17 +69,6 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'bullet'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  # gem 'uniform_notifier'
-  # gem 'ruby_gntp'
-  # gem 'xmpp4r'
-  # gem 'airbrake'
-  # gem 'honeybadger'
-  # gem 'rollbar'
-  # gem 'bugsnag'
-  # gem 'slack-notifier'
-  # gem 'terminal-notifier'
 end
 
 group :test do

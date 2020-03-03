@@ -15,7 +15,7 @@
             <%= profile_pic opinion.author %>
             <div class="jlt-text">
               <div class="jlt-name">
-                <h6><%= link_to opinion.author.name, me_path(opinion.author) %></h6>
+                <h6><%= link_to opinion.author.name, user_path(opinion.author) %></h6>
                 <span><%= opinion.created_ago %></span>
               </div>
               <p><%= opinion.link_jlt %></p>

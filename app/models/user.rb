@@ -64,7 +64,7 @@ class User < ApplicationRecord
   end
 
   def find_friends
-    id_arr = self.follows.map(&:followed_id) << id
+    id_arr = follows.map(&:followed_id) << id
     User.where.not(id: id_arr)
   end
 

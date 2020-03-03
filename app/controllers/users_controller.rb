@@ -3,10 +3,6 @@ class UsersController < ApplicationController
   before_action :not_logged, except: %i[new create]
   before_action :param_check, only: %i[index]
 
-  def me
-    redirect_to me_path(current_user)
-  end
-
   def show
     @user = User.friendly.find(params[:id])
     @users = @user.opinions.includes([:author]).paginate(page: params[:page])
@@ -38,7 +34,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to me_path(@user)
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -52,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'Profile updated'
-      redirect_to me_path(@user)
+      redirect_to user_path(@user)
     else
       render 'edit'
     end
@@ -60,8 +56,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.friendly.find(params[:id])
-    @user.destroy
-    flash[:danger] = 'User deleted'
+    if @user
+      @user.destroy
+      flash[:danger] = 'User deleted'
+    end
+    log_out
     redirect_to login_path
   end
 
