@@ -65,7 +65,7 @@ class User < ApplicationRecord
 
   def find_friends
     id_arr = follows.map(&:followed_id) << id
-    User.where.not(id: id_arr)
+    User.where.not(id: id_arr).includes([:followds])
   end
 
   def popular
