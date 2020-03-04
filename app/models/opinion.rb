@@ -12,7 +12,7 @@ class Opinion < ApplicationRecord
     scanned = scanned.map { |x| x[4...x.length - 1] }
     scanned.each do |username|
       if User.find_by(username: username)
-        text = "<a href='/me/#{username}'>jlt_#{username}</a>"
+        text = "<a href='/users/#{username}'>jlt_#{username}</a>"
         self.text = self.text.gsub("jlt_#{username}", text)
       end
     end

@@ -2,7 +2,7 @@
   <%= render 'layouts/profile_menu' %>
   <%= render 'layouts/nav' %>
   <div class="main-body">
-    <h5><%= link_to  @opinion.author.name, me_path(@opinion.author) %></h5>
+    <h5><%= link_to  @opinion.author.name, user_path(@opinion.author) %></h5>
     <p><%= @opinion.text %></p>
   </div>
 </div>
