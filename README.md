@@ -1,8 +1,6 @@
-# Twitter redesign: Ruby on Rails
+# Just Like That
 
-This solo project is part of the Microverse curriculum in which I had to build a [Twitter Redesign](https://immense-castle-68670.herokuapp.com/) following the design made by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). I could change the logo and name, but the overall design should be there.
-
-The project is fully functional and is open for new features that can be easily added. 
+This solo project in which built a [Twitter Redesign](https://immense-castle-68670.herokuapp.com/) following the design made by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). For additional information, please watch the video in the Features section.
 
 # Features
 
