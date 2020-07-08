@@ -2,7 +2,7 @@
 
 This solo project in which built a [Twitter Redesign](https://immense-castle-68670.herokuapp.com/) following the design made by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details). For additional information, please watch the video in the Features section.
 
-![image](https://github.com/lucasmazo32/just-like-that/blob/feature/final_touches/app/assets/images/screenshots/root.jpg)
+![image](https://github.com/lucasmazo32/personal-portfolio/blob/develop/src/assets/images/projects/jlt.jpeg)
 
 # Features
 
