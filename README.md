@@ -75,6 +75,14 @@ Lucas Mazo:
 [Github](https://github.com/lucasmazo32) | 
 [Twitter](https://twitter.com/lucasmazo32)
 
+## Contact
+
+Lucas Mazo:
+
+- Twitter: [@lucasmazo32](https://twitter.com/lucasmazo32)
+- Github: [lucasmazo32](https://github.com/lucasmazo32)
+- LinkedIn: [Lucas Mazo](https://www.linkedin.com/in/lucasmazo/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
