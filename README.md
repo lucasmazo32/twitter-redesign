@@ -67,13 +67,9 @@ Open `http://localhost:3000/` in your browser.
 
 https://immense-castle-68670.herokuapp.com/
 
-## Authors
+## Future Features
 
-Lucas Mazo:
-
-[LinkedIn](https://www.linkedin.com/in/lucas-mazo-meza-55a65b159/) | 
-[Github](https://github.com/lucasmazo32) | 
-[Twitter](https://twitter.com/lucasmazo32)
+- Add a discover section so users can explore new content.
 
 ## Contact
 
